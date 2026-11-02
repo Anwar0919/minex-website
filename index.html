@@ -67,7 +67,80 @@ section{padding:58px 0;border-top:1px solid #ffffff10}.eyebrow{color:var(--green
   <div class="notice"><b>Community and endorsement disclosure:</b> Mention of public figures or communities in MineX outreach does not imply their support, partnership or endorsement. MineX is a community rewards demo; its check-in points currently have no cash value, and no token or exchange listing is live.</div>
 </div></section>
 
-<section><div class="wrap"><div class="community"><div><div class="eyebrow">Join the journey</div><h2 style="margin-bottom:5px">Build MineX with us.</h2><p class="sub" style="margin:0">Official community links will be added after they are created and verified.</p></div><span class="pill">LINKS COMING SOON</span></div></div></section>
+<sect<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGY2itBBkwbhoCpjObIdTXSD3YXrPGpAU",
+  authDomain: "minex-ebe70.firebaseapp.com",
+  projectId: "minex-ebe70",
+  storageBucket: "minex-ebe70.firebasestorage.app",
+  messagingSenderId: "753657680941",
+  appId: "1:753657680941:web:48b000d2e53bb8d3ed54a4",
+  measurementId: "G-9TGDN4GTN4"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const panel = document.createElement("section");
+panel.id = "minex-login";
+panel.innerHTML = `
+<div style="max-width:430px;margin:30px auto;padding:24px;background:#101a2b;color:white;border:1px solid #22314a;border-radius:18px;font-family:Arial">
+<h2>MineX Account</h2>
+<p id="mx-status">Sign in or create your account</p>
+<input id="mx-email" type="email" placeholder="Email address" style="width:100%;padding:13px;margin:8px 0">
+<input id="mx-pass" type="password" placeholder="Password" style="width:100%;padding:13px;margin:8px 0">
+<button id="mx-signup" style="padding:12px;margin:5px;background:#63e6a5">Sign Up</button>
+<button id="mx-login" style="padding:12px;margin:5px">Sign In</button>
+<button id="mx-google" style="padding:12px;margin:5px">Google Sign In</button>
+<button id="mx-logout" style="padding:12px;margin:5px;display:none">Sign Out</button>
+</div>`;
+document.querySelector("main").appendChild(panel);
+
+const status = document.getElementById("mx-status");
+const email = document.getElementById("mx-email");
+const pass = document.getElementById("mx-pass");
+
+document.getElementById("mx-signup").onclick = async () => {
+  try {
+    await createUserWithEmailAndPassword(auth,email.value,pass.value);
+    status.textContent = "Account created successfully!";
+  } catch(e) { status.textContent = e.message; }
+};
+
+document.getElementById("mx-login").onclick = async () => {
+  try {
+    await signInWithEmailAndPassword(auth,email.value,pass.value);
+    status.textContent = "Signed in successfully!";
+  } catch(e) { status.textContent = e.message; }
+};
+
+document.getElementById("mx-google").onclick = async () => {
+  try {
+    await signInWithPopup(auth,provider);
+  } catch(e) { status.textContent = e.message; }
+};
+
+document.getElementById("mx-logout").onclick = async () => {
+  await signOut(auth);
+};
+
+onAuthStateChanged(auth,user => {
+  status.textContent = user ? "Signed in: " + user.email : "Sign in or create your account";
+  document.getElementById("mx-logout").style.display = user ? "inline-block" : "none";
+});
+</script>ion><div class="wrap"><div class="community"><div><div class="eyebrow">Join the journey</div><h2 style="margin-bottom:5px">Build MineX with us.</h2><p class="sub" style="margin:0">Official community links will be added after they are created and verified.</p></div><span class="pill">LINKS COMING SOON</span></div></div></section>
 </main>
 <footer class="wrap footer"><span>© 2026 MineX Project • Early-stage concept</span><span>Experimental project. No investment offer or profit guarantee.</span></footer>
 </body></html>
