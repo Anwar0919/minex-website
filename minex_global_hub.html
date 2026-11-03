@@ -4,29 +4,417 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d1c">
+<meta name="description" content="Welcome to MineX Global Community.">
 <title>MineX Global Hub</title>
+
 <style>
-:root{color-scheme:dark;--bg:#080d1c;--panel:#111a30;--line:#253454;--text:#f3f6ff;--muted:#aab6d2;--accent:#7c8cff;--cyan:#4dd8e8}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#1c2b55 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.6 Arial,sans-serif}
-.wrap{width:min(1050px,92%);margin:auto}header{padding:18px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:#080d1ceF;backdrop-filter:blur(12px)}
-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-weight:800;font-size:23px;letter-spacing:1px;color:white;text-decoration:none}.brand span{color:var(--cyan)}nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
-.hero{padding:70px 0 42px;text-align:center}.tag{color:var(--cyan);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
-h1{font-size:clamp(38px,7vw,66px);line-height:1.05;margin:15px 0}h2{font-size:28px;margin:0 0 10px}p{color:var(--muted)}.lead{max-width:700px;margin:16px auto 25px}
-.btn{display:inline-block;background:linear-gradient(100deg,var(--accent),#4bcae6);color:#07101d;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:800}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:25px 0 48px}.card{background:linear-gradient(145deg,#141f39,#0e1629);border:1px solid var(--line);padding:22px;border-radius:18px}.num{font-size:32px;font-weight:800;color:white}.small{font-size:13px;color:var(--muted)}
-section{padding:28px 0}.notice{border:1px solid #786a35;background:#292516;border-radius:14px;padding:16px;color:#f6e7b0;margin:25px 0 45px}
+:root{
+  color-scheme:dark;
+  --bg:#080d1c;
+  --panel:#111a30;
+  --line:#253454;
+  --text:#f3f6ff;
+  --muted:#aab6d2;
+  --accent:#7c8cff;
+  --cyan:#4dd8e8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(circle at 80% 0%,#1c2b55 0,transparent 35%),var(--bg);
+  color:var(--text);
+  font:16px/1.6 Arial,sans-serif;
+}
+.wrap{width:min(1050px,92%);margin:auto}
+header{
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:10;
+  background:#080d1cef;
+  backdrop-filter:blur(12px);
+}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:25px;letter-spacing:1px;color:white;text-decoration:none}
+.brand span{color:var(--cyan)}
+nav a:not(.brand){color:var(--muted);text-decoration:none;margin-left:12px;font-size:13px}
+.hero{text-align:center;padding:55px 0 35px}
+.tag{color:var(--cyan);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+h1{font-size:clamp(36px,7vw,62px);line-height:1.08;margin:15px 0}
+h2{font-size:25px;margin:0 0 10px}
+h3{margin:0 0 8px}
+p{color:var(--muted)}
+.lead{max-width:700px;margin:16px auto 25px}
+.btn{
+  display:inline-block;border:0;cursor:pointer;
+  background:linear-gradient(100deg,var(--accent),#4bcae6);
+  color:#07101d;padding:12px 19px;border-radius:12px;
+  text-decoration:none;font-weight:800;margin:4px;
+}
+.btn.secondary{background:#202e4d;color:white;border:1px solid #3a4d76}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+section{padding:25px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px;margin:20px 0 35px}
+.card{
+  background:linear-gradient(145deg,#141f39,#0e1629);
+  border:1px solid var(--line);padding:20px;border-radius:18px;
+}
+.num{font-size:32px;font-weight:900;color:white}
+.small{font-size:13px;color:var(--muted)}
+.muted{color:var(--muted)}
+.notice{
+  border:1px solid #786a35;background:#292516;
+  border-radius:14px;padding:15px;color:#f6e7b0;margin:20px 0;
+}
+.stat{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:9px 0}
+.stat:last-child{border:0}
+input,textarea{
+  width:100%;padding:13px;margin:7px 0;
+  border-radius:10px;border:1px solid var(--line);
+  background:#080f20;color:white;font:inherit;
+}
 footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
-</style></head>
+footer a{color:var(--cyan);text-decoration:none}
+#splash{
+  position:fixed;inset:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;
+  background:radial-gradient(circle at center,#1b3560,#080d1c 70%);
+  transition:opacity .6s ease,visibility .6s ease;
+}
+#splash.hide{opacity:0;visibility:hidden}
+.logo{
+  width:92px;height:92px;border-radius:26px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#7c8cff,#4dd8e8);
+  color:#07101d;font-size:48px;font-weight:1000;
+  box-shadow:0 0 45px #4dd8e855;
+}
+.splash-name{font-size:32px;font-weight:900;letter-spacing:4px;margin-top:14px}
+.splash-name span{color:var(--cyan)}
+.loader{display:flex;gap:7px;margin-top:22px}
+.loader i{width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 1s infinite alternate}
+.loader i:nth-child(2){animation-delay:.2s}
+.loader i:nth-child(3){animation-delay:.4s}
+@keyframes pulse{to{opacity:.2;transform:scale(.7)}}
+@media(max-width:520px){
+ nav a:not(.brand){margin-left:7px;font-size:12px}
+ .hero{padding-top:40px}
+}
+</style>
+</head>
+
 <body>
-<header><div class="wrap"><nav><a class="brand" href="minex_website_updated.html">Mine<span>X</span></a><div><a href="minex_website_updated.html">Main Website</a><a href="#community">Community</a></div></nav></div></header>
+
+<div id="splash">
+  <div class="logo">M</div>
+  <div class="splash-name">MINE<span>X</span></div>
+  <div class="tag">POWERING THE FUTURE</div>
+  <div class="loader"><i></i><i></i><i></i></div>
+  <p>Welcome to MineX</p>
+</div>
+
+<header>
+ <div class="wrap">
+  <nav>
+   <a class="brand" href="index.html">Mine<span>X</span></a>
+   <div>
+    <a href="index.html">Main Website</a>
+    <a href="#mining">Mining</a>
+    <a href="#community">Community</a>
+   </div>
+  </nav>
+ </div>
+</header>
+
 <main class="wrap">
-<section class="hero"><div class="tag">The MineX Global Hub</div><h1>One Community.<br><span style="color:var(--cyan)">A World of Possibilities.</span></h1>
-<p class="lead">Meet crypto learners, builders and community members from around the world. Follow project updates, take part in the demo check-in and help shape the MineX community.</p>
-<a class="btn" href="#checkin">Explore Demo Check-in</a></section>
-<section><h2>Community at a glance</h2><p>Live community statistics will appear here when a verified backend is connected.</p>
-<div class="grid"><article class="card"><div class="num">—</div><b>Global Members</b><p class="small">Live count not connected yet</p></article><article class="card"><div class="num">10</div><b>Demo Points</b><p class="small">Illustrative daily check-in amount</p></article><article class="card"><div class="num">—</div><b>Top Community Members</b><p class="small">Leaderboard coming after account system setup</p></article></div></section>
-<section id="checkin"><h2>Daily Check-in Demo</h2><div class="card"><p>This section is a preview of the MineX daily check-in experience. It is not Proof-of-Work mining and does not create cryptocurrency.</p><p><b>Demo reward:</b> 10 points per check-in (illustrative only).</p><p class="small">The real check-in feature currently lives in the separate app demo. No wallet connection or cash-value reward is provided on this page.</p></div></section>
-<section id="community"><h2>Join the conversation</h2><div class="grid"><article class="card"><h3>Telegram</h3><p>Community channel link will be added after the official channel is created.</p></article><article class="card"><h3>X / Twitter</h3><p>Official social profile link will be added when available.</p></article><article class="card"><h3>Global outreach</h3><p>We welcome independent crypto communities, including people interested in US and global crypto culture.</p></article></div></section>
-<div class="notice"><b>Important disclosure:</b> MineX is an independent early-stage demo project. It is not affiliated with, sponsored by, or endorsed by Donald Trump, his family, campaign, or any political organization. Any outreach to communities interested in public figures or political crypto themes does not imply endorsement. Demo points have no cash value. No MNX token is currently deployed, and no exchange listing is confirmed.</div>
-</main><footer><div class="wrap">© MineX — Early-stage community demo. Please do your own research.</div></footer>
-</body></html>
+
+<section class="hero">
+ <div class="tag">The MineX Global Hub</div>
+ <h1>One Community.<br><span style="color:var(--cyan)">A World of Possibilities.</span></h1>
+ <p class="lead">Welcome to MineX. Join our global community, complete daily check-ins, collect community points and follow future project rewards.</p>
+ <a class="btn" href="#mining">Start Daily Check-in</a>
+ <a class="btn secondary" href="#rewards">Explore Rewards</a>
+</section>
+
+<section id="dashboard">
+ <h2>Your Dashboard</h2>
+ <p>Your community activity at a glance.</p>
+ <div class="grid">
+  <article class="card">
+   <div class="small">Your MineX Points</div>
+   <div class="num" id="points">0</div>
+   <p class="small">Community points collected</p>
+  </article>
+  <article class="card">
+   <div class="small">Daily Check-in Reward</div>
+   <div class="num">10</div>
+   <p class="small">Points per eligible check-in</p>
+  </article>
+  <article class="card">
+   <div class="small">Next Check-in</div>
+   <div class="num" id="timer">Ready</div>
+   <p class="small" id="timerText">You can check in now</p>
+  </article>
+ </div>
+</section>
+
+<section id="mining">
+ <h2>Daily Mining Check-in</h2>
+ <div class="card">
+  <p>Visit daily and complete your MineX community check-in.</p>
+  <div class="stat"><span>Daily Points</span><b>10 Points</b></div>
+  <div class="stat"><span>Check-in Period</span><b>24 Hours</b></div>
+  <div class="stat"><span>Points Speed</span><b>10 Points / Check-in</b></div>
+  <p class="small">This is a daily community check-in, not Proof-of-Work mining.</p>
+  <button class="btn" id="checkinBtn" onclick="dailyCheckin()">Start Check-in</button>
+  <p id="checkinMessage" class="small" aria-live="polite"></p>
+ </div>
+</section>
+
+<section id="referral">
+ <h2>Referral Program</h2>
+ <div class="card">
+  <h3>Invite Friends to MineX</h3>
+  <p>Share MineX with friends and help grow our global community.</p>
+  <div class="stat"><span>Your Referral Code</span><b id="refCode">Loading...</b></div>
+  <input id="refLink" readonly aria-label="Your referral link">
+  <button class="btn" onclick="copyReferral()">Copy Invite Link</button>
+  <p class="small" id="refMessage">Referral tracking and bonuses will be introduced after backend integration.</p>
+ </div>
+</section>
+
+<section id="wallet">
+ <h2>Wallet</h2>
+ <div class="card">
+  <h3>Connect Your Crypto Wallet</h3>
+  <p>Wallet integration is being prepared. Never share your seed phrase or private key with anyone.</p>
+  <button class="btn secondary" disabled>Wallet Connect — Coming Soon</button>
+  <p class="small">You will connect your own external wallet when this feature is ready.</p>
+ </div>
+</section>
+
+<section id="tasks">
+ <h2>Tasks & Activities</h2>
+ <div class="grid">
+  <article class="card">
+   <h3>Daily Community Task</h3>
+   <p>Daily activities will be announced here.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+  <article class="card">
+   <h3>Social Tasks</h3>
+   <p>Community and social media activities will appear here.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+  <article class="card">
+   <h3>Special Challenges</h3>
+   <p>Take part in future MineX community challenges.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+ </div>
+</section>
+
+<section id="rewards">
+ <h2>MineX Rewards</h2>
+ <div class="grid">
+  <article class="card">
+   <h3>MineX Points</h3>
+   <div class="num">MNX Points</div>
+   <p>Collect community points through daily activity.</p>
+  </article>
+  <article class="card">
+   <h3>Future MNX Token Rewards</h3>
+   <div class="num">MNX</div>
+   <p>Potential future token rewards, subject to official launch and eligibility rules.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+  <article class="card">
+   <h3>USDT Rewards</h3>
+   <div class="num">USDT</div>
+   <p>Potential future rewards, subject to funding, availability and official rules.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+ </div>
+ <div class="notice">
+  MineX Points currently have no cash value and are not redeemable for cryptocurrency. Any future MNX or USDT rewards will depend on official announcements, eligibility rules and available funding.
+ </div>
+</section>
+
+<section id="kyc">
+ <h2>Identity Verification (KYC)</h2>
+ <div class="card">
+  <h3>KYC Portal</h3>
+  <p>Identity verification is not open yet. We will publish details when the official process is ready.</p>
+  <span class="tag">Coming Soon</span>
+  <p class="small">Do not send identity documents or personal information through unofficial messages.</p>
+ </div>
+</section>
+
+<section id="community">
+ <h2>Global Community</h2>
+ <div class="grid">
+  <article class="card">
+   <h3>Telegram</h3>
+   <p>Official community channel link will be added soon.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+  <article class="card">
+   <h3>X / Twitter</h3>
+   <p>Follow official MineX updates when our profile is announced.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+  <article class="card">
+   <h3>Global Outreach</h3>
+   <p>We welcome community members, builders and crypto learners from around the world.</p>
+  </article>
+ </div>
+</section>
+
+<section id="app">
+ <h2>Get the MineX App</h2>
+ <div class="grid">
+  <article class="card">
+   <h3>Android App</h3>
+   <p>Install MineX on your Android home screen when your browser supports installation.</p>
+   <button class="btn" id="installBtn" onclick="installMineX()">Install MineX</button>
+   <p class="small" id="installMessage">You can also use MineX directly in Chrome.</p>
+  </article>
+  <article class="card">
+   <h3>iOS App</h3>
+   <p>MineX for iPhone and iPad.</p>
+   <span class="tag">Coming Soon</span>
+  </article>
+ </div>
+</section>
+
+<section id="contact">
+ <h2>Contact Us</h2>
+ <div class="card">
+  <h3>MineX Support</h3>
+  <p>For support and project inquiries, our official support email will be announced soon.</p>
+  <b style="color:var(--cyan)">Support Email — Coming Soon</b>
+ </div>
+</section>
+
+<div class="notice">
+ <b>Project Information:</b> MineX is an early-stage independent community project. Daily check-in points are community points and have no current cash value. No MNX token launch, cryptocurrency redemption or exchange listing is confirmed. Future features will be announced through official MineX channels.
+</div>
+
+</main>
+
+<footer>
+ <div class="wrap">
+  © MineX — Building a global community.
+  <p><a href="index.html">Main Website</a> · <a href="#contact">Contact Us</a> · <a href="#rewards">Rewards</a></p>
+ </div>
+</footer>
+
+<script>
+const POINTS_KEY = "minex_hub_points_v1";
+const CHECKIN_KEY = "minex_hub_last_checkin_v1";
+const REF_KEY = "minex_hub_referral_v1";
+const DAY = 24 * 60 * 60 * 1000;
+let installPrompt = null;
+
+function getPoints(){
+  return Number(localStorage.getItem(POINTS_KEY) || 0);
+}
+function showPoints(){
+  document.getElementById("points").textContent = getPoints().toLocaleString();
+}
+function getLastCheckin(){
+  return Number(localStorage.getItem(CHECKIN_KEY) || 0);
+}
+function dailyCheckin(){
+  const now = Date.now();
+  const last = getLastCheckin();
+  const message = document.getElementById("checkinMessage");
+
+  if(last && now - last < DAY){
+    message.textContent = "Your next check-in is not ready yet.";
+    updateTimer();
+    return;
+  }
+
+  localStorage.setItem(POINTS_KEY, getPoints() + 10);
+  localStorage.setItem(CHECKIN_KEY, now);
+  message.textContent = "Check-in completed. 10 community points added.";
+  showPoints();
+  updateTimer();
+}
+function updateTimer(){
+  const last = getLastCheckin();
+  const btn = document.getElementById("checkinBtn");
+  const timer = document.getElementById("timer");
+  const timerText = document.getElementById("timerText");
+
+  if(!last || Date.now() - last >= DAY){
+    timer.textContent = "Ready";
+    timerText.textContent = "You can check in now";
+    btn.disabled = false;
+    btn.textContent = "Start Check-in";
+    return;
+  }
+
+  const remaining = DAY - (Date.now() - last);
+  const hours = Math.floor(remaining / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+
+  timer.textContent =
+    String(hours).padStart(2,"0") + ":" +
+    String(minutes).padStart(2,"0") + ":" +
+    String(seconds).padStart(2,"0");
+
+  timerText.textContent = "Time until your next check-in";
+  btn.disabled = true;
+  btn.textContent = "Check-in Completed";
+}
+function setupReferral(){
+  let code = localStorage.getItem(REF_KEY);
+  if(!code){
+    code = "MNX" + Math.random().toString(36).slice(2,8).toUpperCase();
+    localStorage.setItem(REF_KEY,code);
+  }
+  document.getElementById("refCode").textContent = code;
+  const link = new URL("index.html",window.location.href);
+  link.searchParams.set("ref",code);
+  document.getElementById("refLink").value = link.href;
+}
+async function copyReferral(){
+  const field = document.getElementById("refLink");
+  const message = document.getElementById("refMessage");
+  try{
+    await navigator.clipboard.writeText(field.value);
+    message.textContent = "Invite link copied. Referral tracking is not active yet.";
+  }catch(e){
+    field.select();
+    message.textContent = "Select and copy your invite link.";
+  }
+}
+window.addEventListener("beforeinstallprompt",event=>{
+  event.preventDefault();
+  installPrompt = event;
+});
+async function installMineX(){
+  const message = document.getElementById("installMessage");
+  if(installPrompt){
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+  }else if(window.matchMedia("(display-mode: standalone)").matches){
+    message.textContent = "MineX is already installed.";
+  }else{
+    message.textContent = "Open this website in Chrome. If available, use the browser menu and choose Add to Home screen or Install app.";
+  }
+}
+showPoints();
+setupReferral();
+updateTimer();
+setInterval(updateTimer,1000);
+setTimeout(()=>document.getElementById("splash").classList.add("hide"),1800);
+</script>
+
+</body>
+</html>
