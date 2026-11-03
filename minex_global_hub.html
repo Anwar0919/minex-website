@@ -11,21 +11,21 @@ header{padding:20px;background:#0d1b2d;display:flex;justify-content:space-betwee
 .logo{font-size:25px;font-weight:bold;color:#35e69a}
 .container{max-width:850px;margin:auto;padding:18px}
 h2{color:#35e69a}
-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}
-nav button{background:#142840;color:white;border:1px solid #29435d;padding:13px 4px;border-radius:10px;font-weight:bold}
+nav{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:20px 0}
+nav button{background:#142840;color:white;border:1px solid #29435d;padding:13px 3px;border-radius:10px;font-weight:bold;font-size:12px}
 nav button.active{background:#159b69}
-.panel{display:none;background:#102238;padding:22px;border-radius:16px;margin-bottom:20px}
+.panel{display:none;background:#102238;padding:20px;border-radius:16px;margin-bottom:20px}
 .panel.active{display:block}
 .card{background:#172d46;padding:17px;border-radius:12px;margin:12px 0}
-.number{font-size:30px;font-weight:bold;color:#35e69a}
-.circle{width:210px;height:210px;border:9px solid #35e69a;border-radius:50%;margin:25px auto;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 0 25px #159b6955}
-.circle strong{font-size:35px;color:#35e69a}
-button.action{background:#159b69;color:white;border:0;padding:13px 20px;border-radius:9px;font-weight:bold;width:100%;margin-top:10px}
-button:disabled{opacity:.5}
-input{width:100%;padding:13px;border-radius:8px;border:1px solid #345;background:#071829;color:white;margin:8px 0}
+.number{font-size:27px;font-weight:bold;color:#35e69a}
+.circle{width:205px;height:205px;border:9px solid #35e69a;border-radius:50%;margin:25px auto;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 0 25px #159b6955}
+.circle strong{font-size:34px;color:#35e69a}
+.action{background:#159b69;color:white;border:0;padding:13px 18px;border-radius:9px;font-weight:bold;width:100%;margin-top:10px}
+button:disabled{opacity:.55}
 .small{font-size:13px;color:#a9bacb;line-height:1.6}
+input{width:100%;padding:13px;border-radius:8px;border:1px solid #345;background:#071829;color:white;margin:8px 0}
 footer{text-align:center;padding:25px;color:#91a4b8}
-@media(max-width:430px){nav button{font-size:12px;padding:12px 2px}}
+@media(max-width:430px){nav button{font-size:10px;padding:12px 1px}}
 </style>
 </head>
 <body>
@@ -39,35 +39,18 @@ footer{text-align:center;padding:25px;color:#91a4b8}
  <p class="small">Your community dashboard</p>
 
  <nav>
-  <button class="active" onclick="showTab('mining',this)">⛏ Mining</button>
-  <button onclick="showTab('referral',this)">👥 Referral</button>
+  <button onclick="showTab('referral',this)" class="active">👥 Referral</button>
   <button onclick="showTab('wallet',this)">👛 Wallet</button>
   <button onclick="showTab('tasks',this)">📋 Tasks</button>
+  <button onclick="showTab('profile',this)">👤 Profile</button>
+  <button onclick="showTab('mining',this)">⛏ Mining</button>
  </nav>
 
- <section id="mining" class="panel active">
-  <h2>⛏ Mining Center</h2>
-  <div class="circle">
-   <strong>10</strong>
-   <span>Points / Day</span>
-  </div>
-  <div class="card">
-   <p>Mining Balance</p>
-   <div class="number">0 Points</div>
-  </div>
-  <div class="card">
-   <p>Mining Speed</p>
-   <div class="number">10 Points / 24h</div>
-  </div>
-  <button class="action" disabled>Mining — Coming Soon</button>
-  <p class="small">Daily check-in will become active after secure account-based mining is connected.</p>
- </section>
-
- <section id="referral" class="panel">
-  <h2>👥 Referral Center</h2>
+ <section id="referral" class="panel active">
+  <h2>Referral Center</h2>
   <div class="card">
    <p>Your Referral Link</p>
-   <input id="refLink" value="Available after account setup" readonly>
+   <input value="Available after account setup" readonly>
    <button class="action" disabled>Copy Referral Link — Coming Soon</button>
   </div>
   <div class="card">
@@ -77,19 +60,19 @@ footer{text-align:center;padding:25px;color:#91a4b8}
   <div class="card">
    <p>Referral Mining Speed Bonus</p>
    <div class="number">20%</div>
-   <p class="small">Proposed bonus, activation subject to verification rules.</p>
+   <p class="small">Proposed bonus. Activation after secure verification.</p>
   </div>
   <div class="card">
    <h3>Referral Rewards</h3>
    <div class="number">5 USDT</div>
-   <p>For every 10 eligible verified referrals</p>
-   <p class="small">Email verification, duplicate-account checks and anti-fraud review will be required.</p>
-   <button class="action" disabled>Claim Referral Reward — Coming Soon</button>
+   <p>For every 10 eligible verified referrals.</p>
+   <p class="small">Email verification and anti-fraud checks required.</p>
+   <button class="action" disabled>Claim Reward — Coming Soon</button>
   </div>
  </section>
 
  <section id="wallet" class="panel">
-  <h2>👛 MineX Wallet</h2>
+  <h2>MineX Wallet</h2>
   <div class="card">
    <p>Points Balance</p>
    <div class="number">0 Points</div>
@@ -97,17 +80,17 @@ footer{text-align:center;padding:25px;color:#91a4b8}
   <div class="card">
    <p>Proposed Conversion</p>
    <div class="number">1,000 Points = 10 MNX</div>
-   <p class="small">This is a proposed calculation only. MNX token is not yet launched or redeemable.</p>
+   <p class="small">Proposed calculation only. MNX is not yet launched or redeemable.</p>
   </div>
   <div class="card">
-   <p>Wallet Connection</p>
+   <h3>Wallet Connection</h3>
    <button class="action" disabled>Connect Wallet — Coming Soon</button>
+   <p class="small">Never enter your seed phrase or private key on MineX.</p>
   </div>
-  <p class="small">Never enter your wallet seed phrase or private key on MineX.</p>
  </section>
 
  <section id="tasks" class="panel">
-  <h2>📋 Tasks Center</h2>
+  <h2>Tasks Center</h2>
   <div class="card">
    <h3>Daily Tasks</h3>
    <p class="small">Daily community tasks will appear here.</p>
@@ -120,18 +103,69 @@ footer{text-align:center;padding:25px;color:#91a4b8}
   </div>
   <div class="card">
    <h3>Task Rewards</h3>
-   <p class="small">Rewards will be shown after the task verification system is ready.</p>
+   <p class="small">Rewards will be shown after secure task verification is ready.</p>
   </div>
+ </section>
+
+ <section id="profile" class="panel">
+  <h2>My Profile</h2>
+  <div class="card">
+   <p>Profile Picture</p>
+   <div class="number">👤</div>
+   <p>Username: Coming Soon</p>
+   <p>User ID: Coming Soon</p>
+   <p>Email Verification: Not Connected</p>
+  </div>
+  <div class="card">
+   <h3>KYC Verification</h3>
+   <div class="number">2 MNX</div>
+   <p class="small">Proposed MineX KYC fee.</p>
+   <button class="action" disabled>KYC Verification — Coming Soon</button>
+  </div>
+  <div class="card">
+   <h3>Account Security</h3>
+   <p class="small">Account verification and security settings will be available after secure account integration.</p>
+   <button class="action" disabled>Security Settings — Coming Soon</button>
+  </div>
+  <button class="action" disabled>Logout</button>
+ </section>
+
+ <section id="mining" class="panel">
+  <h2>⛏ Mining Center</h2>
+  <div class="circle">
+   <strong>10</strong>
+   <span>Points / 24 Hours</span>
+  </div>
+  <div class="card">
+   <p>Mining Balance</p>
+   <div class="number">0 Points</div>
+  </div>
+  <div class="card">
+   <p>Mining Speed</p>
+   <div class="number">10 Points / Day</div>
+  </div>
+  <button class="action" disabled>Start Mining — Coming Soon</button>
+  <div class="card">
+   <h3>⚡ Auto Mining</h3>
+   <p class="small">After 7 consecutive completed mining days, the planned 8th-day automatic mining feature will appear here.</p>
+   <button class="action" disabled>Auto Mining — Coming Soon</button>
+  </div>
+  <div class="card">
+   <h3>🎁 Rewards Day</h3>
+   <p class="small">Special bonus day and automatic mining logo will appear here when this feature is activated.</p>
+   <button class="action" disabled>Rewards — Coming Soon</button>
+  </div>
+  <p class="small">The 24-hour timer, streak tracking and automatic mining need secure Firebase server-side scheduling. They are not active yet.</p>
  </section>
 
  <div class="card">
   <h3>🔐 MineX Security</h3>
-  <p class="small">Email verification, duplicate-account detection, referral validation and suspicious-activity review are planned. Rewards will only be credited after secure server-side verification.</p>
+  <p class="small">Email verification, duplicate-account detection, referral validation and suspicious-activity review are planned. Rewards require secure server-side verification.</p>
  </div>
 
  <div class="card">
   <h3>Important Notice</h3>
-  <p class="small">MineX is an early-stage project. Current points have no cash value. MNX token launch, conversion, USDT rewards, withdrawals and exchange listings are not confirmed. Proposed rewards are not currently payable.</p>
+  <p class="small">MineX is an early-stage project. Points currently have no cash value. MNX launch, conversion, USDT rewards, KYC service, withdrawals and exchange listings are not confirmed. Proposed rewards are not currently payable.</p>
  </div>
 </div>
 
