@@ -143,4 +143,85 @@ onAuthStateChanged(auth,user => {
 </script>ion><div class="wrap"><div class="community"><div><div class="eyebrow">Join the journey</div><h2 style="margin-bottom:5px">Build MineX with us.</h2><p class="sub" style="margin:0">Official community links will be added after they are created and verified.</p></div><span class="pill">LINKS COMING SOON</span></div></div></section>
 </main>
 <footer class="wrap footer"><span>© 2026 MineX Project • Early-stage concept</span><span>Experimental project. No investment offer or profit guarantee.</span></footer>
-</body></html>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAGY2itBBkwbhoCpjObIdTXSD3YXrPGpAU",
+  authDomain: "minex-ebe70.firebaseapp.com",
+  projectId: "minex-ebe70",
+  storageBucket: "minex-ebe70.firebasestorage.app",
+  messagingSenderId: "753657680941",
+  appId: "1:753657680941:web:48b000d2e53bb8d3ed54a4",
+  measurementId: "G-9TGDN4GTN4"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const account = document.querySelector("#account .wrap");
+
+account.insertAdjacentHTML("beforeend", `
+  <div class="card" style="max-width:500px;margin-top:20px">
+    <h3 id="authTitle">Create MineX Account</h3>
+    <input id="authEmail" type="email" placeholder="Email address"
+      style="width:100%;padding:13px;margin:8px 0">
+    <input id="authPassword" type="password" placeholder="Password (6 characters minimum)"
+      style="width:100%;padding:13px;margin:8px 0">
+    <button id="signupBtn" class="btn">Sign Up</button>
+    <button id="loginBtn" class="btn secondary">Sign In</button>
+    <button id="googleBtn" class="btn secondary">Continue with Google</button>
+    <button id="logoutBtn" class="btn secondary" hidden>Sign Out</button>
+    <p id="authMessage"></p>
+  </div>
+`);
+
+const email = document.getElementById("authEmail");
+const password = document.getElementById("authPassword");
+const message = document.getElementById("authMessage");
+
+document.getElementById("signupBtn").onclick = async () => {
+  try {
+    await createUserWithEmailAndPassword(auth, email.value, password.value);
+    message.textContent = "Account created successfully!";
+  } catch (error) {
+    message.textContent = error.message;
+  }
+};
+
+document.getElementById("loginBtn").onclick = async () => {
+  try {
+    await signInWithEmailAndPassword(auth, email.value, password.value);
+    message.textContent = "Login successful!";
+  } catch (error) {
+    message.textContent = error.message;
+  }
+};
+
+document.getElementById("googleBtn").onclick = async () => {
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    message.textContent = error.message;
+  }
+};
+
+document.getElementById("logoutBtn").onclick = () => signOut(auth);
+
+onAuthStateChanged(auth, user => {
+  message.textContent = user
+    ? "Logged in: " + user.email
+    : "Please sign in or create an account.";
+  document.getElementById("logoutBtn").hidden = !user;
+});
+</script></body></html>
