@@ -6,149 +6,227 @@
 <meta name="theme-color" content="#080d18">
 <title>MineX — Community Mining Project</title>
 <meta name="description" content="MineX is a community rewards project exploring daily check-ins, transparent points and a future token ecosystem.">
+
 <style>
 :root{--bg:#080d18;--panel:#101a2b;--panel2:#0c1423;--line:#22314a;--text:#edf4ff;--muted:#9aabc4;--green:#63e6a5;--blue:#79a9ff;--gold:#e9c46a}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#152846 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #ffffff12}.brand{font-size:1.35rem;font-weight:850;letter-spacing:.04em}.brand span{color:var(--green)}.links{display:flex;gap:22px;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--green)}.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.nav-actions .btn{padding:8px 12px;font-size:.84rem}.nav-actions .btn.secondary{color:var(--text)}.pill{display:inline-flex;border:1px solid #63e6a555;background:#63e6a511;color:var(--green);border-radius:99px;padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.04em}
-.hero{padding:82px 0 68px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.04;margin:18px 0}.hero h1 em{font-style:normal;color:var(--green)}.lead{color:var(--muted);max-width:620px;font-size:1.1rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:12px 19px;border-radius:12px;font-weight:750;background:var(--green);color:#07130e}.btn.secondary{background:transparent;border:1px solid var(--line);color:var(--text)}.visual{background:linear-gradient(145deg,#172944,#0c1423);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 22px 80px #0005}.coin{width:112px;height:112px;border-radius:50%;margin:8px auto 20px;display:grid;place-items:center;font-size:2.3rem;font-weight:900;color:#07130e;background:radial-gradient(circle at 30% 25%,#c6ffdf,var(--green) 55%,#269c69);box-shadow:0 0 55px #63e6a533}.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:14px;border-radius:14px;background:#07101e;border:1px solid #ffffff12}.stat b{display:block;font-size:1.2rem}.stat small{color:var(--muted)}
-section{padding:58px 0;border-top:1px solid #ffffff10}.eyebrow{color:var(--green);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;margin:10px 0 14px}.sub{color:var(--muted);max-width:700px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.card{background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:22px}.icon{font-size:1.6rem}.card h3{margin:10px 0 6px}.card p{color:var(--muted);margin:0}.tokenbox{display:grid;grid-template-columns:1fr 1fr;gap:18px}.allocation{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffffff12;color:var(--muted)}.allocation b{color:var(--text)}.notice{padding:16px 18px;border:1px solid #e9c46a55;background:#e9c46a0d;border-radius:14px;color:#e8d8aa;margin-top:20px;font-size:.92rem}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.step{border-left:2px solid var(--green);padding:5px 0 5px 16px}.step b{color:var(--green)}.community{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:20px;background:linear-gradient(110deg,#132b35,#14213b);border:1px solid #34505b}.footer{padding:28px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:760px){.nav{flex-wrap:wrap;gap:12px}.links{gap:11px;font-size:.78rem}.hero{grid-template-columns:1fr;padding:55px 0}.cards{grid-template-columns:1fr}.tokenbox{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr 1fr}.community{align-items:flex-start;flex-direction:column}}
-@media(max-width:430px){.links a:nth-child(2),.links a:nth-child(4){display:none}.roadmap{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#152846 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92%);margin:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #ffffff12}
+.brand{font-size:1.35rem;font-weight:850;letter-spacing:.04em}
+.brand span{color:var(--green)}
+.links{display:flex;gap:22px;color:var(--muted);font-size:.92rem}
+.links a:hover{color:var(--green)}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.nav-actions .btn{padding:8px 12px;font-size:.84rem}
+.pill{display:inline-flex;border:1px solid #63e6a555;background:#63e6a511;color:var(--green);border-radius:99px;padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.04em}
+.hero{padding:82px 0 68px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.04;margin:18px 0}
+.hero h1 em{font-style:normal;color:var(--green)}
+.lead{color:var(--muted);max-width:620px;font-size:1.1rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 19px;border-radius:12px;font-weight:750;background:var(--green);color:#07130e;border:0;cursor:pointer}
+.btn.secondary{background:transparent;border:1px solid var(--line);color:var(--text)}
+.visual{background:linear-gradient(145deg,#172944,#0c1423);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 22px 80px #0005}
+.coin{width:112px;height:112px;border-radius:50%;margin:8px auto 20px;display:grid;place-items:center;font-size:2.3rem;font-weight:900;color:#07130e;background:radial-gradient(circle at 30% 25%,#c6ffdf,var(--green) 55%,#269c69);box-shadow:0 0 55px #63e6a533}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{padding:14px;border-radius:14px;background:#07101e;border:1px solid #ffffff12}
+.stat b{display:block;font-size:1.2rem}
+.stat small{color:var(--muted)}
+section{padding:58px 0;border-top:1px solid #ffffff10}
+.eyebrow{color:var(--green);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;margin:10px 0 14px}
+.sub{color:var(--muted);max-width:700px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.card{background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:22px}
+.icon{font-size:1.6rem}
+.card h3{margin:10px 0 6px}
+.card p{color:var(--muted);margin:0}
+.tokenbox{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.allocation{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffffff12;color:var(--muted)}
+.allocation b{color:var(--text)}
+.notice{padding:16px 18px;border:1px solid #e9c46a55;background:#e9c46a0d;border-radius:14px;color:#e8d8aa;margin-top:20px;font-size:.92rem}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.step{border-left:2px solid var(--green);padding:5px 0 5px 16px}
+.step b{color:var(--green)}
+.community{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:20px;background:linear-gradient(110deg,#132b35,#14213b);border:1px solid #34505b}
+.footer{padding:28px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.auth-input{width:100%;padding:13px;margin:8px 0;background:#07101e;color:white;border:1px solid var(--line);border-radius:10px;font-size:1rem}
+.auth-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#authMessage{overflow-wrap:anywhere;color:var(--green);margin-top:15px}
+@media(max-width:760px){
+.nav{flex-wrap:wrap;gap:12px}
+.links{gap:11px;font-size:.78rem}
+.hero{grid-template-columns:1fr;padding:55px 0}
+.cards{grid-template-columns:1fr}
+.tokenbox{grid-template-columns:1fr}
+.roadmap{grid-template-columns:1fr 1fr}
+.community{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:430px){
+.links a:nth-child(2),.links a:nth-child(4){display:none}
+.roadmap{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
 <header class="wrap nav">
-  <a class="brand" href="#home">MINE<span>X</span></a>
-  <nav class="links" aria-label="Main navigation"><a href="#about">About</a><a href="#mining">Mining</a><a href="#tokenomics">Tokenomics</a><a href="#roadmap">Roadmap</a><a href="#exchanges">Exchanges</a><a href="#global-community">Global Community</a><a href="minex_global_hub.html">Global Hub</a></nav><div class="nav-actions"><a class="btn secondary" href="#account">Sign In</a><a class="btn" href="#account">Sign Up</a></div>
+<a class="brand" href="#home">MINE<span>X</span></a>
+<nav class="links" aria-label="Main navigation">
+<a href="#about">About</a><a href="#mining">Mining</a><a href="#tokenomics">Tokenomics</a><a href="#roadmap">Roadmap</a><a href="#exchanges">Exchanges</a><a href="#global-community">Global Community</a><a href="minex_global_hub.html">Global Hub</a>
+</nav>
+<div class="nav-actions">
+<a class="btn secondary" href="#account">Sign In</a>
+<a class="btn" href="#account">Sign Up</a>
+</div>
 </header>
+
 <main>
 <section class="wrap hero" id="home">
-  <div>
-    <span class="pill">COMMUNITY REWARDS • EARLY DEMO</span>
-    <h1>Start small.<br><em>Build together.</em></h1>
-    <p class="lead">MineX is an early-stage community project exploring daily participation, transparent reward points and a future token ecosystem built with its community.</p>
-    <div class="actions"><a class="btn" href="#about">Explore MineX</a><a class="btn secondary" href="#roadmap">View roadmap</a><a class="btn secondary" href="#account">Sign In / Sign Up</a><a class="btn secondary" href="#app-download">Download App</a></div>
-  </div>
-  <aside class="visual" aria-label="MineX project preview">
-    <div class="coin">MX</div>
-    <h3 style="text-align:center;margin:0 0 18px">MineX Community</h3>
-    <div class="statgrid"><div class="stat"><b>Coming soon</b><small>Daily check-in</small></div><div class="stat"><b>Points</b><small>Demo rewards</small></div><div class="stat"><b>In design</b><small>Mobile app</small></div><div class="stat"><b>Not launched</b><small>Token</small></div></div>
-  </aside>
+<div>
+<span class="pill">COMMUNITY REWARDS • EARLY DEMO</span>
+<h1>Start small.<br><em>Build together.</em></h1>
+<p class="lead">MineX is an early-stage community project exploring daily participation, transparent reward points and a future token ecosystem built with its community.</p>
+<div class="actions">
+<a class="btn" href="#about">Explore MineX</a>
+<a class="btn secondary" href="#roadmap">View roadmap</a>
+<a class="btn secondary" href="#account">Sign In / Sign Up</a>
+<a class="btn secondary" href="#app-download">Download App</a>
+</div>
+</div>
+<aside class="visual">
+<div class="coin">MX</div>
+<h3 style="text-align:center;margin:0 0 18px">MineX Community</h3>
+<div class="statgrid">
+<div class="stat"><b>Coming soon</b><small>Daily check-in</small></div>
+<div class="stat"><b>Points</b><small>Demo rewards</small></div>
+<div class="stat"><b>In design</b><small>Mobile app</small></div>
+<div class="stat"><b>Not launched</b><small>Token</small></div>
+</div>
+</aside>
 </section>
-<section id="about"><div class="wrap"><div class="eyebrow">About MineX</div><h2>A community-first project</h2><p class="sub">Our first goal is to create a simple, honest experience where members can participate, track demo points and follow development. We will publish clear rules before introducing any token or rewards with monetary value.</p>
-<div class="cards"><article class="card"><div class="icon">🤝</div><h3>Community</h3><p>Build with early members and listen to feedback before expanding.</p></article><article class="card"><div class="icon">📊</div><h3>Transparency</h3><p>Publish reward rules, project updates and token details openly.</p></article><article class="card"><div class="icon">🔐</div><h3>Safety first</h3><p>Never ask for wallet seed phrases or private keys.</p></article></div></div></section>
-<section id="mining"><div class="wrap"><div class="eyebrow">Participation</div><h2>How MineX check-ins may work</h2><p class="sub">The planned first version is a daily check-in rewards system. A member signs in, checks in once per day and sees their recorded demo points.</p>
-<div class="cards"><article class="card"><div class="icon">📱</div><h3>1. Join</h3><p>Create an account when the app is ready.</p></article><article class="card"><div class="icon">⏱️</div><h3>2. Check in</h3><p>Complete one daily check-in under published rules.</p></article><article class="card"><div class="icon">🧾</div><h3>3. Track points</h3><p>View your activity history and points balance.</p></article></div>
-<div class="notice"><b>Important:</b> Daily check-ins are not Bitcoin-style proof-of-work mining and do not generate cryptocurrency by themselves. MineX has no live mining, token, exchange listing or guaranteed rewards at this stage.</div></div></section>
 
-<section id="account"><div class="wrap"><div class="eyebrow">Member access</div><h2>Sign in or create your MineX account</h2><p class="sub">Account registration is being prepared. Firebase Authentication has not yet been connected, so sign-in and sign-up are not active yet.</p><div class="cards"><article class="card"><div class="icon">🔐</div><h3>Sign In</h3><p>Returning members will be able to securely access their account once authentication is connected.</p><span class="pill" style="margin-top:16px">COMING SOON</span></article><article class="card"><div class="icon">👤</div><h3>Sign Up</h3><p>New members will be able to register with email and password after the secure account system is ready.</p><span class="pill" style="margin-top:16px">COMING SOON</span></article><article class="card"><div class="icon">🛡️</div><h3>Account safety</h3><p>MineX will never ask for your wallet seed phrase or private key. KYC is not active and no identity documents are being collected.</p></article></div></div></section>
-<section id="app-download"><div class="wrap"><div class="eyebrow">Mobile app</div><h2>Get the MineX Android App</h2><p class="sub">The Android app package is still being prepared. An official APK download will appear here after testing and security checks. Do not install unofficial MineX APK files from other sources.</p><div class="card"><h3>📱 Android download</h3><p>Official app download: coming soon.</p><span class="pill" style="margin-top:16px">APK NOT PUBLISHED YET</span></div></div></section>
-<section id="tokenomics"><div class="wrap"><div class="eyebrow">Token plan</div><h2>Tokenomics — draft only</h2><p class="sub">No token has been created or issued. Any future supply and allocation will be reviewed, documented and announced before launch.</p><div class="tokenbox"><div class="card"><h3>Token details</h3><div class="allocation"><span>Project</span><b>MineX</b></div><div class="allocation"><span>Symbol</span><b>Not final</b></div><div class="allocation"><span>Blockchain</span><b>Under review</b></div><div class="allocation"><span>Contract address</span><b>Not deployed</b></div></div><div class="card"><h3>Planned principles</h3><p>Clear supply • Published allocation • Public contract verification • No guaranteed price or profit claims.</p></div></div></div></section>
-<section id="roadmap"><div class="wrap"><div class="eyebrow">Development plan</div><h2>Roadmap</h2><div class="roadmap"><div class="step"><b>Phase 01</b><h3>Website</h3><p class="sub">Launch project information and gather feedback.</p></div><div class="step"><b>Phase 02</b><h3>App demo</h3><p class="sub">Build login, check-in and points history.</p></div><div class="step"><b>Phase 03</b><h3>Testnet</h3><p class="sub">Explore a test token and wallet integration.</p></div><div class="step"><b>Phase 04</b><h3>Review</h3><p class="sub">Security, legal and community review before any mainnet decision.</p></div></div></div></section>
+<section id="about"><div class="wrap">
+<div class="eyebrow">About MineX</div>
+<h2>A community-first project</h2>
+<p class="sub">Our first goal is to create a simple, honest experience where members can participate, track demo points and follow development. We will publish clear rules before introducing any token or rewards with monetary value.</p>
+<div class="cards">
+<article class="card"><div class="icon">🤝</div><h3>Community</h3><p>Build with early members and listen to feedback before expanding.</p></article>
+<article class="card"><div class="icon">📊</div><h3>Transparency</h3><p>Publish reward rules, project updates and token details openly.</p></article>
+<article class="card"><div class="icon">🔐</div><h3>Safety first</h3><p>Never ask for wallet seed phrases or private keys.</p></article>
+</div></div></section>
 
-<section id="exchanges"><div class="wrap"><div class="eyebrow">Future listing goals</div><h2>Exchange Listing Targets</h2><p class="sub">MineX aims to meet the standards required to apply for listings on established exchanges. These are future targets only; no listing has been approved, confirmed or scheduled.</p>
+<section id="mining"><div class="wrap">
+<div class="eyebrow">Participation</div>
+<h2>How MineX check-ins may work</h2>
+<p class="sub">The planned first version is a daily check-in rewards system. A member signs in, checks in once per day and sees their recorded demo points.</p>
+<div class="cards">
+<article class="card"><div class="icon">📱</div><h3>1. Join</h3><p>Create an account when the app is ready.</p></article>
+<article class="card"><div class="icon">⏱️</div><h3>2. Check in</h3><p>Complete one daily check-in under published rules.</p></article>
+<article class="card"><div class="icon">🧾</div><h3>3. Track points</h3><p>View your activity history and points balance.</p></article>
+</div>
+<div class="notice"><b>Important:</b> Daily check-ins are not Bitcoin-style proof-of-work mining and do not generate cryptocurrency by themselves. MineX has no live mining, token, exchange listing or guaranteed rewards at this stage.</div>
+</div></section>
+
+<section id="account"><div class="wrap">
+<div class="eyebrow">Member access</div>
+<h2>Sign in or create your MineX account</h2>
+<p class="sub">Register with email and password, or use your Google account. Use Forgot Password if you cannot remember your password.</p>
+<div class="cards">
+<article class="card"><div class="icon">🔐</div><h3>Sign In</h3><p>Securely access your MineX account.</p></article>
+<article class="card"><div class="icon">👤</div><h3>Sign Up</h3><p>Create your MineX member account.</p></article>
+<article class="card"><div class="icon">🛡️</div><h3>Account safety</h3><p>MineX will never ask for your wallet seed phrase or private key. KYC is not active and no identity documents are being collected.</p></article>
+</div>
+
+<div class="card" style="max-width:520px;margin-top:22px">
+<h3>MineX Account</h3>
+<input class="auth-input" id="authEmail" type="email" placeholder="Email address" autocomplete="email">
+<input class="auth-input" id="authPassword" type="password" placeholder="Password (minimum 6 characters)" autocomplete="current-password">
+<div class="auth-buttons">
+<button class="btn" id="signupBtn">Sign Up</button>
+<button class="btn secondary" id="loginBtn">Sign In</button>
+<button class="btn secondary" id="resetBtn">Forgot Password?</button>
+<button class="btn secondary" id="googleBtn">Continue with Google</button>
+<button class="btn secondary" id="logoutBtn" hidden>Sign Out</button>
+</div>
+<p id="authMessage" aria-live="polite">Please sign in or create an account.</p>
+</div>
+</div></section>
+
+<section id="app-download"><div class="wrap">
+<div class="eyebrow">Mobile app</div><h2>Get the MineX Android App</h2>
+<p class="sub">The Android app package is still being prepared. An official APK download will appear here after testing and security checks. Do not install unofficial MineX APK files from other sources.</p>
+<div class="card"><h3>📱 Android download</h3><p>Official app download: coming soon.</p><span class="pill" style="margin-top:16px">APK NOT PUBLISHED YET</span></div>
+</div></section>
+
+<section id="tokenomics"><div class="wrap">
+<div class="eyebrow">Token plan</div><h2>Tokenomics — draft only</h2>
+<p class="sub">No token has been created or issued. Any future supply and allocation will be reviewed, documented and announced before launch.</p>
+<div class="tokenbox">
+<div class="card"><h3>Token details</h3>
+<div class="allocation"><span>Project</span><b>MineX</b></div>
+<div class="allocation"><span>Symbol</span><b>Not final</b></div>
+<div class="allocation"><span>Blockchain</span><b>Under review</b></div>
+<div class="allocation"><span>Contract address</span><b>Not deployed</b></div>
+</div>
+<div class="card"><h3>Planned principles</h3><p>Clear supply • Published allocation • Public contract verification • No guaranteed price or profit claims.</p></div>
+</div></div></section>
+
+<section id="roadmap"><div class="wrap">
+<div class="eyebrow">Development plan</div><h2>Roadmap</h2>
+<div class="roadmap">
+<div class="step"><b>Phase 01</b><h3>Website</h3><p class="sub">Launch project information and gather feedback.</p></div>
+<div class="step"><b>Phase 02</b><h3>App demo</h3><p class="sub">Build login, check-in and points history.</p></div>
+<div class="step"><b>Phase 03</b><h3>Testnet</h3><p class="sub">Explore a test token and wallet integration.</p></div>
+<div class="step"><b>Phase 04</b><h3>Review</h3><p class="sub">Security, legal and community review before any mainnet decision.</p></div>
+</div></div></section>
+
+<section id="exchanges"><div class="wrap">
+<div class="eyebrow">Future listing goals</div><h2>Exchange Listing Targets</h2>
+<p class="sub">MineX aims to meet the standards required to apply for listings on established exchanges. These are future targets only; no listing has been approved, confirmed or scheduled.</p>
 <div class="cards">
 <article class="card"><div class="icon">◈</div><h3>Gate.io</h3><p>Future listing target. Subject to the exchange's independent review and approval.</p><span class="pill" style="margin-top:16px">TARGET • NOT LISTED</span></article>
 <article class="card"><div class="icon">◆</div><h3>MEXC</h3><p>Future listing target. Subject to the exchange's independent review and approval.</p><span class="pill" style="margin-top:16px">TARGET • NOT LISTED</span></article>
 <article class="card"><div class="icon">⬡</div><h3>OKX</h3><p>Future listing target. Subject to the exchange's independent review and approval.</p><span class="pill" style="margin-top:16px">TARGET • NOT LISTED</span></article>
 </div>
-<div class="notice"><b>Listing disclosure:</b> Gate.io, MEXC and OKX are mentioned as MineX's aspirational exchange targets only. MineX has no confirmed exchange listing, partnership, endorsement or approval from these platforms. Any future application or announcement will be communicated transparently.</div></div></section>
-
-
-<section id="global-community"><div class="wrap">
-  <div class="eyebrow">Global outreach</div>
-  <h2>Global Crypto Community</h2>
-  <p class="sub">MineX welcomes people from across the global crypto community, including communities interested in blockchain innovation, creator-led projects and crypto culture.</p>
-  <div class="cards">
-    <article class="card"><div class="icon">🌍</div><h3>Worldwide community</h3><p>Connect with crypto learners, builders and community members around the world.</p></article>
-    <article class="card"><div class="icon">💬</div><h3>Open conversation</h3><p>Share project updates transparently and invite feedback without promising profits or guaranteed rewards.</p></article>
-    <article class="card"><div class="icon">🛡️</div><h3>Independent project</h3><p>MineX is independent and is not affiliated with or endorsed by Donald Trump, his family, campaign, or any political organization.</p></article>
-  </div>
-  <div class="notice"><b>Community and endorsement disclosure:</b> Mention of public figures or communities in MineX outreach does not imply their support, partnership or endorsement. MineX is a community rewards demo; its check-in points currently have no cash value, and no token or exchange listing is live.</div>
+<div class="notice"><b>Listing disclosure:</b> Gate.io, MEXC and OKX are mentioned as MineX's aspirational exchange targets only. MineX has no confirmed exchange listing, partnership, endorsement or approval from these platforms. Any future application or announcement will be communicated transparently.</div>
 </div></section>
 
-<sect<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+<section id="global-community"><div class="wrap">
+<div class="eyebrow">Global outreach</div><h2>Global Crypto Community</h2>
+<p class="sub">MineX welcomes people from across the global crypto community, including communities interested in blockchain innovation, creator-led projects and crypto culture.</p>
+<div class="cards">
+<article class="card"><div class="icon">🌍</div><h3>Worldwide community</h3><p>Connect with crypto learners, builders and community members around the world.</p></article>
+<article class="card"><div class="icon">💬</div><h3>Open conversation</h3><p>Share project updates transparently and invite feedback without promising profits or guaranteed rewards.</p></article>
+<article class="card"><div class="icon">🛡️</div><h3>Independent project</h3><p>MineX is independent and is not affiliated with or endorsed by Donald Trump, his family, campaign, or any political organization.</p></article>
+</div>
+<div class="notice"><b>Community and endorsement disclosure:</b> Mention of public figures or communities in MineX outreach does not imply their support, partnership or endorsement. MineX is a community rewards demo; its check-in points currently have no cash value, and no token or exchange listing is live.</div>
+</div></section>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAGY2itBBkwbhoCpjObIdTXSD3YXrPGpAU",
-  authDomain: "minex-ebe70.firebaseapp.com",
-  projectId: "minex-ebe70",
-  storageBucket: "minex-ebe70.firebasestorage.app",
-  messagingSenderId: "753657680941",
-  appId: "1:753657680941:web:48b000d2e53bb8d3ed54a4",
-  measurementId: "G-9TGDN4GTN4"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-
-const panel = document.createElement("section");
-panel.id = "minex-login";
-panel.innerHTML = `
-<div style="max-width:430px;margin:30px auto;padding:24px;background:#101a2b;color:white;border:1px solid #22314a;border-radius:18px;font-family:Arial">
-<h2>MineX Account</h2>
-<p id="mx-status">Sign in or create your account</p>
-<input id="mx-email" type="email" placeholder="Email address" style="width:100%;padding:13px;margin:8px 0">
-<input id="mx-pass" type="password" placeholder="Password" style="width:100%;padding:13px;margin:8px 0">
-<button id="mx-signup" style="padding:12px;margin:5px;background:#63e6a5">Sign Up</button>
-<button id="mx-login" style="padding:12px;margin:5px">Sign In</button>
-<button id="mx-google" style="padding:12px;margin:5px">Google Sign In</button>
-<button id="mx-logout" style="padding:12px;margin:5px;display:none">Sign Out</button>
-</div>`;
-document.querySelector("main").appendChild(panel);
-
-const status = document.getElementById("mx-status");
-const email = document.getElementById("mx-email");
-const pass = document.getElementById("mx-pass");
-
-document.getElementById("mx-signup").onclick = async () => {
-  try {
-    await createUserWithEmailAndPassword(auth,email.value,pass.value);
-    status.textContent = "Account created successfully!";
-  } catch(e) { status.textContent = e.message; }
-};
-
-document.getElementById("mx-login").onclick = async () => {
-  try {
-    await signInWithEmailAndPassword(auth,email.value,pass.value);
-    status.textContent = "Signed in successfully!";
-  } catch(e) { status.textContent = e.message; }
-};
-
-document.getElementById("mx-google").onclick = async () => {
-  try {
-    await signInWithPopup(auth,provider);
-  } catch(e) { status.textContent = e.message; }
-};
-
-document.getElementById("mx-logout").onclick = async () => {
-  await signOut(auth);
-};
-
-onAuthStateChanged(auth,user => {
-  status.textContent = user ? "Signed in: " + user.email : "Sign in or create your account";
-  document.getElementById("mx-logout").style.display = user ? "inline-block" : "none";
-});
-</script>ion><div class="wrap"><div class="community"><div><div class="eyebrow">Join the journey</div><h2 style="margin-bottom:5px">Build MineX with us.</h2><p class="sub" style="margin:0">Official community links will be added after they are created and verified.</p></div><span class="pill">LINKS COMING SOON</span></div></div></section>
+<section><div class="wrap">
+<div class="community">
+<div><div class="eyebrow">Join the journey</div><h2 style="margin-bottom:5px">Build MineX with us.</h2><p class="sub" style="margin:0">Official community links will be added after they are created and verified.</p></div>
+<span class="pill">LINKS COMING SOON</span>
+</div>
+</div></section>
 </main>
-<footer class="wrap footer"><span>© 2026 MineX Project • Early-stage concept</span><span>Experimental project. No investment offer or profit guarantee.</span></footer>
+
+<footer class="wrap footer">
+<span>© 2026 MineX Project • Early-stage concept</span>
+<span>Experimental project. No investment offer or profit guarantee.</span>
+</footer>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
@@ -169,59 +247,93 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const account = document.querySelector("#account .wrap");
-
-account.insertAdjacentHTML("beforeend", `
-  <div class="card" style="max-width:500px;margin-top:20px">
-    <h3 id="authTitle">Create MineX Account</h3>
-    <input id="authEmail" type="email" placeholder="Email address"
-      style="width:100%;padding:13px;margin:8px 0">
-    <input id="authPassword" type="password" placeholder="Password (6 characters minimum)"
-      style="width:100%;padding:13px;margin:8px 0">
-    <button id="signupBtn" class="btn">Sign Up</button>
-    <button id="loginBtn" class="btn secondary">Sign In</button>
-    <button id="googleBtn" class="btn secondary">Continue with Google</button>
-    <button id="logoutBtn" class="btn secondary" hidden>Sign Out</button>
-    <p id="authMessage"></p>
-  </div>
-`);
-
 const email = document.getElementById("authEmail");
 const password = document.getElementById("authPassword");
 const message = document.getElementById("authMessage");
+const logoutBtn = document.getElementById("logoutBtn");
 
-document.getElementById("signupBtn").onclick = async () => {
-  try {
-    await createUserWithEmailAndPassword(auth, email.value, password.value);
-    message.textContent = "Account created successfully!";
-  } catch (error) {
-    message.textContent = error.message;
+function showMessage(text) {
+  message.textContent = text;
+}
+
+document.getElementById("signupBtn").addEventListener("click", async () => {
+  const emailValue = email.value.trim();
+  const passwordValue = password.value;
+
+  if (!emailValue || !passwordValue) {
+    showMessage("Please enter your email and password.");
+    return;
   }
-};
 
-document.getElementById("loginBtn").onclick = async () => {
   try {
-    await signInWithEmailAndPassword(auth, email.value, password.value);
-    message.textContent = "Login successful!";
+    await createUserWithEmailAndPassword(auth, emailValue, passwordValue);
+    showMessage("Account created successfully!");
   } catch (error) {
-    message.textContent = error.message;
+    showMessage(error.message);
   }
-};
+});
 
-document.getElementById("googleBtn").onclick = async () => {
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const emailValue = email.value.trim();
+  const passwordValue = password.value;
+
+  if (!emailValue || !passwordValue) {
+    showMessage("Please enter your email and password.");
+    return;
+  }
+
+  try {
+    await signInWithEmailAndPassword(auth, emailValue, passwordValue);
+    showMessage("Login successful!");
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
+
+document.getElementById("resetBtn").addEventListener("click", async () => {
+  const emailValue = email.value.trim();
+
+  if (!emailValue) {
+    showMessage("Please enter your email address first.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, emailValue);
+    showMessage("Password reset email sent. Please check your inbox.");
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
+
+document.getElementById("googleBtn").addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, provider);
+    showMessage("Google login successful!");
   } catch (error) {
-    message.textContent = error.message;
+    showMessage(error.message);
   }
-};
+});
 
-document.getElementById("logoutBtn").onclick = () => signOut(auth);
+logoutBtn.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    showMessage("You have signed out.");
+  } catch (error) {
+    showMessage(error.message);
+  }
+});
 
 onAuthStateChanged(auth, user => {
-  message.textContent = user
-    ? "Logged in: " + user.email
-    : "Please sign in or create an account.";
-  document.getElementById("logoutBtn").hidden = !user;
+  if (user) {
+    showMessage("Logged in: " + user.email);
+    logoutBtn.hidden = false;
+  } else {
+    showMessage("Please sign in or create an account.");
+    logoutBtn.hidden = true;
+  }
 });
-</script></body></html>
+</script>
+
+</body>
+</html>
