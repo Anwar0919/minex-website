@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d18">
-<title>MineX — Community Mining Ecosystem</title>
-<meta name="description" content="MineX community ecosystem: registration, profiles and future community rewards.">
+
+<title>MineX — Community Ecosystem</title>
+<meta name="description" content="Welcome to MineX, a community-powered digital ecosystem.">
 
 <style>
 :root {
@@ -18,8 +18,15 @@
   --muted: #a5b2c5;
   --border: #24334a;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -27,15 +34,21 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
-a { color: inherit; text-decoration: none; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   background: #080d18ee;
   border-bottom: 1px solid var(--border);
   padding: 14px 5%;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -43,88 +56,111 @@ nav {
   flex-wrap: wrap;
   gap: 12px;
 }
+
 .logo {
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 900;
   color: var(--green);
+  letter-spacing: 1px;
 }
-nav .links {
+
+.nav-links {
   display: flex;
   gap: 17px;
   flex-wrap: wrap;
   font-size: 14px;
 }
-nav .links a:hover { color: var(--green); }
-section { padding: 65px 6%; }
-.container { max-width: 1100px; margin: auto; }
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+section {
+  padding: 65px 6%;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
 .hero {
-  min-height: 470px;
+  min-height: 480px;
   display: flex;
   align-items: center;
   text-align: center;
   background:
-    radial-gradient(ellipse at top, #123d3a 0%, transparent 60%);
+    radial-gradient(ellipse at top, #123d3a 0%, transparent 65%);
 }
+
 .hero h1 {
-  font-size: clamp(38px, 7vw, 65px);
-  line-height: 1.1;
+  font-size: clamp(40px, 8vw, 68px);
+  line-height: 1.12;
   margin: 0 0 20px;
 }
-.hero h1 span { color: var(--green); }
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 25px;
-  color: var(--muted);
+
+.hero h1 span {
+  color: var(--green);
 }
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
 .btn {
   display: inline-block;
   border: 0;
   border-radius: 9px;
-  padding: 12px 20px;
+  padding: 12px 21px;
   background: var(--green);
   color: #06150f;
   font-weight: bold;
   cursor: pointer;
 }
+
 .btn.secondary {
   background: transparent;
   border: 1px solid var(--green);
   color: var(--green);
 }
-h2 { font-size: 30px; margin-top: 0; }
-.subtitle { color: var(--muted); }
+
+h2 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
+
 .card {
   padding: 23px;
   border: 1px solid var(--border);
   background: var(--panel);
   border-radius: 15px;
 }
-.card h3 { color: var(--green); margin-top: 0; }
-.account-panel {
-  max-width: 650px;
-  margin: auto;
+
+.card h3 {
+  color: var(--green);
+  margin-top: 0;
 }
-input, select {
-  width: 100%;
-  padding: 13px;
-  margin: 7px 0 15px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: #080f1d;
-  color: white;
-  font-size: 15px;
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 6%;
+  text-align: center;
+  color: var(--muted);
 }
-label { display: block; font-size: 14px; color: var(--muted); }
-.form-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+
 .notice {
   padding: 12px;
   border-radius: 8px;
@@ -132,20 +168,27 @@ label { display: block; font-size: 14px; color: var(--muted); }
   color: var(--muted);
   margin: 12px 0;
 }
-footer {
-  border-top: 1px solid var(--border);
-  padding: 25px 6%;
-  text-align: center;
-  color: var(--muted);
+
+@media(max-width: 600px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  section {
+    padding: 45px 5%;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <nav>
     <a class="logo" href="#home">MineX</a>
-    <div class="links">
+
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#ecosystem">Ecosystem</a>
@@ -156,69 +199,124 @@ footer {
 </header>
 
 <main>
+
 <section class="hero" id="home">
   <div class="container">
-    <h1>Welcome to <span>MineX</span></h1>
+
+    <h1>
+      Welcome to <span>MineX</span>
+    </h1>
+
     <p>
-      A community-powered digital ecosystem built around participation,
-      transparency and future blockchain innovation.
+      A community-powered digital ecosystem
+      built around participation, transparency
+      and future blockchain innovation.
     </p>
-    <a class="btn" href="#account">Join MineX</a>
-    <a class="btn secondary" href="#about">Explore</a>
+
+    <a class="btn" href="#account">
+      Join MineX
+    </a>
+
+    <a class="btn secondary" href="#about">
+      Explore
+    </a>
+
   </div>
 </section>
-
+<!-- ABOUT SECTION -->
 <section id="about">
   <div class="container">
     <h2>About MineX</h2>
+
     <p class="subtitle">
-      MineX aims to build a global community through digital participation,
-      learning and transparent development.
+      MineX aims to build a global community through
+      digital participation, learning and transparent development.
     </p>
+
     <div class="grid">
       <div class="card">
         <h3>Community First</h3>
         <p>Building a welcoming global community.</p>
       </div>
+
       <div class="card">
         <h3>Transparency</h3>
         <p>Clear updates about project development.</p>
       </div>
+
       <div class="card">
         <h3>Future Vision</h3>
-        <p>Exploring a future blockchain ecosystem.</p>
+        <p>Exploring future blockchain innovation.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ECOSYSTEM SECTION -->
 <section id="ecosystem">
   <div class="container">
     <h2>MineX Ecosystem</h2>
+
     <div class="grid">
       <div class="card">
         <h3>Mining</h3>
         <p>Community points system — Coming Soon.</p>
       </div>
+
       <div class="card">
         <h3>Referral</h3>
         <p>Community invitation system — Coming Soon.</p>
       </div>
+
       <div class="card">
         <h3>MineX Wallet</h3>
         <p>Wallet features — Coming Soon.</p>
       </div>
+
+      <div class="card">
+        <h3>MineX Academy</h3>
+        <p>Learn about crypto and blockchain — Coming Soon.</p>
+      </div>
     </div>
   </div>
 </section>
-</main>
-</body>
-</html>
-<!-- ACCOUNT SECTION -->
+
+<!-- ROADMAP SECTION -->
+<section id="roadmap">
+  <div class="container">
+    <h2>MineX Roadmap</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Phase 1</h3>
+        <p>Website, community and account foundation.</p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 2</h3>
+        <p>Community points and participation features.</p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 3</h3>
+        <p>Wallet research and ecosystem development.</p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 4</h3>
+        <p>Long-term blockchain exploration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNT SECTION START -->
 <section id="account">
-  <div class="container account-panel">
+  <div class="container">
     <h2>MineX Account</h2>
-    <p class="subtitle">Create your account or sign in to continue.</p>
+    <p class="subtitle">
+      Create your account or sign in to continue.
+    </p>
 
     <div class="card">
       <div id="authMessage" class="notice">
@@ -227,20 +325,40 @@ footer {
 
       <div id="authArea">
         <h3>Create Account</h3>
+        
+        <label for="fullName">Full Name</label>
+        <input
+          id="fullName"
+          type="text"
+          placeholder="Enter your full name"
+          autocomplete="name"
+        >
 
-        <label>Full Name</label>
-        <input id="fullName" type="text" placeholder="Enter your full name">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Choose username (3-20 characters)"
+          autocomplete="username"
+        >
 
-        <label>Username</label>
-        <input id="username" type="text" placeholder="Choose username (3-20 characters)">
+        <label for="email">Email Address</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+        >
 
-        <label>Email Address</label>
-        <input id="email" type="email" placeholder="Enter email">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Minimum 8 characters"
+          autocomplete="new-password"
+        >
 
-        <label>Password</label>
-        <input id="password" type="password" placeholder="Minimum 8 characters">
-
-        <label>Country</label>
+        <label for="country">Country</label>
         <select id="country">
           <option value="">Select country</option>
           <option value="Pakistan">Pakistan</option>
@@ -253,7 +371,7 @@ footer {
           <option value="Other">Other</option>
         </select>
 
-        <label>Gender</label>
+        <label for="gender">Gender</label>
         <select id="gender">
           <option value="">Select gender</option>
           <option value="Male">Male</option>
@@ -261,8 +379,13 @@ footer {
         </select>
 
         <div class="form-actions">
-          <button class="btn" id="signupBtn" type="button">Register</button>
-          <button class="btn secondary" id="loginBtn" type="button">Login</button>
+          <button class="btn" id="signupBtn" type="button">
+            Register
+          </button>
+
+          <button class="btn secondary" id="loginBtn" type="button">
+            Login
+          </button>
         </div>
 
         <p>
@@ -276,54 +399,57 @@ footer {
         </button>
       </div>
 
+      <!-- USER PROFILE AREA -->
       <div id="profileArea" hidden>
-        <h3>Your MineX Profile</h3>
-        <p id="profileInfo"></p>
-        <button class="btn secondary" id="verifyBtn" type="button">
-          Check Email Verification
-        </button>
-        <button class="btn" id="saveProfileBtn" type="button">
-          Save Profile
-        </button>
-        <button class="btn secondary" id="logoutBtn" type="button">
-          Sign Out
-        </button>
+        <h3>Complete Your MineX Profile</h3>
+
+        <div id="profileInfo" class="notice">
+          Your account information will appear here.
+        </div>
+
+        <label for="profileFullName">Full Name</label>
+        <input id="profileFullName" type="text" placeholder="Your full name">
+
+        <label for="profileUsername">Username</label>
+        <input id="profileUsername" type="text" placeholder="Choose a username">
+
+        <label for="profileCountry">Country</label>
+        <select id="profileCountry">
+          <option value="">Select country</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="profileGender">Gender</label>
+        <select id="profileGender">
+          <option value="">Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <div class="form-actions">
+          <button class="btn secondary" id="verifyBtn" type="button">
+            Check Email Verification
+          </button>
+
+          <button class="btn" id="saveProfileBtn" type="button">
+            Save Profile
+          </button>
+
+          <button class="btn secondary" id="logoutBtn" type="button">
+            Sign Out
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- FUTURE ECOSYSTEM -->
-<section id="roadmap">
-  <div class="container">
-    <h2>MineX Roadmap</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Phase 1</h3>
-        <p>Website, community and account foundation.</p>
-      </div>
-      <div class="card">
-        <h3>Phase 2</h3>
-        <p>Community points and participation features.</p>
-      </div>
-      <div class="card">
-        <h3>Phase 3</h3>
-        <p>Wallet research and ecosystem development.</p>
-      </div>
-      <div class="card">
-        <h3>Phase 4</h3>
-        <p>Long-term blockchain exploration.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 MineX Community Ecosystem</p>
-  <p>Building Together. Growing Together.</p>
-</footer>
-</body>
-</html>
+</main>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 
@@ -331,25 +457,22 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  sendEmailVerification,
-  sendPasswordResetEmail,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut,
+  sendEmailVerification,
+  sendPasswordResetEmail,
   onAuthStateChanged,
-  reload
+  signOut
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 import {
   getFirestore,
   doc,
   getDoc,
-  setDoc,
   runTransaction,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// MineX Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAGY2itBBkwbhoCpjObIdTXSD3YXrPGpAU",
   authDomain: "minex-ebe70.firebaseapp.com",
@@ -367,8 +490,12 @@ const googleProvider = new GoogleAuthProvider();
 
 const $ = (id) => document.getElementById(id);
 
-function message(text) {
-  $("authMessage").textContent = text;
+const authMessage = $("authMessage");
+const authArea = $("authArea");
+const profileArea = $("profileArea");
+
+function showMessage(message) {
+  authMessage.textContent = message;
 }
 
 function cleanUsername(value) {
@@ -379,225 +506,205 @@ function validUsername(value) {
   return /^[a-z0-9_]{3,20}$/.test(value);
 }
 
-function showProfileArea(show) {
-  $("authArea").hidden = show;
-  $("profileArea").hidden = !show;
+function showProfileArea(user) {
+  authArea.hidden = true;
+  profileArea.hidden = false;
+
+  $("profileInfo").textContent =
+    "Signed in as " + (user.email || "Google user") +
+    ". Please complete your profile.";
 }
 
-function clearPassword() {
-  $("password").value = "";
+function showAuthArea() {
+  profileArea.hidden = true;
+  authArea.hidden = false;
 }
+  
+let currentUser = null;
 
-function displayUser(user) {
-  if (!user) {
-    showProfileArea(false);
-    $("profileInfo").textContent = "";
+// REGISTER WITH EMAIL
+$("signupBtn").addEventListener("click", async () => {
+  const fullName = $("fullName").value.trim();
+  const username = cleanUsername($("username").value);
+  const email = $("email").value.trim();
+  const password = $("password").value;
+  const country = $("country").value;
+  const gender = $("gender").value;
+
+  if (!fullName || !username || !email || !password || !country || !gender) {
+    showMessage("Please complete all registration fields.");
     return;
   }
 
-  showProfileArea(true);
-  $("profileInfo").textContent =
-    "Signed in as: " + (user.email || "Google user");
-}
+  if (fullName.length < 2 || !validUsername(username)) {
+    showMessage("Name must be at least 2 characters. Username must be 3-20 characters: a-z, 0-9 or _.");
+    return;
+  }
 
-function requireUser() {
-  const user = auth.currentUser;
-  if (!user) {
-    message("Please sign in first.");
-    return null;
+  if (password.length < 8) {
+    showMessage("Password must contain at least 8 characters.");
+    return;
   }
-  return user;
-}
 
-function profileValues() {
-  return {
-    fullName: $("fullName").value.trim(),
-    username: cleanUsername($("username").value),
-    country: $("country").value,
-    gender: $("gender").value
-  };
-}
-
-function validateProfile(data) {
-  if (data.fullName.length < 2) {
-    throw new Error("Please enter your full name.");
-  }
-  if (!validUsername(data.username)) {
-    throw new Error("Username must be 3-20 characters: a-z, 0-9 or underscore.");
-  }
-  if (!data.country) {
-    throw new Error("Please select your country.");
-  }
-  if (!["Male", "Female"].includes(data.gender)) {
-    throw new Error("Please select your gender.");
-  }
-}
-
-message("MineX Firebase connection initialized.");
-// USER REGISTRATION
-$("signupBtn").addEventListener("click", async () => {
   try {
-    const fullName = $("fullName").value.trim();
-    const username = cleanUsername($("username").value);
-    const email = $("email").value.trim();
-    const password = $("password").value;
-
-    validateProfile({
-      fullName,
-      username,
-      country: $("country").value,
-      gender: $("gender").value
-    });
-
-    if (!email || !email.includes("@")) {
-      throw new Error("Please enter a valid email address.");
-    }
-
-    if (password.length < 8) {
-      throw new Error("Password must be at least 8 characters.");
-    }
-
-    const usernameRef = doc(db, "usernames", username);
-    const usernameSnap = await getDoc(usernameRef);
-
-    if (usernameSnap.exists()) {
-      throw new Error("This username is already taken.");
-    }
-
-    message("Creating your MineX account...");
-    const result = await createUserWithEmailAndPassword(
+    const credential = await createUserWithEmailAndPassword(
       auth, email, password
     );
 
-    await sendEmailVerification(result.user);
+    sessionStorage.setItem("minexPendingProfile", JSON.stringify({
+      fullName, username, country, gender
+    }));
 
-    message("Account created! Please check your email and verify it. Then sign in again to complete your profile.");
-    clearPassword();
+    await sendEmailVerification(credential.user);
+    await signOut(auth);
+
+    showAuthArea();
+    showMessage("Registration successful! Check your email and verify your account. Then log in.");
   } catch (error) {
-    message(error.message || "Registration failed.");
+    showMessage("Registration error: " + error.message);
   }
 });
 
-// USER LOGIN
+// EMAIL LOGIN
 $("loginBtn").addEventListener("click", async () => {
-  try {
-    const email = $("email").value.trim();
-    const password = $("password").value;
+  const email = $("email").value.trim();
+  const password = $("password").value;
 
-    if (!email || !password) {
-      throw new Error("Enter your email and password.");
-    }
-
-    message("Signing in...");
-    await signInWithEmailAndPassword(auth, email, password);
-    clearPassword();
-    message("Login successful. Checking your account...");
-  } catch (error) {
-    message(error.message || "Login failed.");
+  if (!email || !password) {
+    showMessage("Enter your email and password.");
+    return;
   }
-});
 
-// FORGOT PASSWORD
-$("resetBtn").addEventListener("click", async () => {
   try {
-    const email = $("email").value.trim();
-    if (!email) {
-      throw new Error("Enter your email address first.");
-    }
-
-    await sendPasswordResetEmail(auth, email);
-    message("Password reset link sent. Check your email.");
+    await signInWithEmailAndPassword(auth, email, password);
+    showMessage("Login successful. Loading your profile...");
   } catch (error) {
-    message(error.message || "Password reset failed.");
+    showMessage("Login error: " + error.message);
   }
 });
 
 // GOOGLE LOGIN
 $("googleBtn").addEventListener("click", async () => {
   try {
-    message("Opening Google sign-in...");
     await signInWithPopup(auth, googleProvider);
-    message("Google sign-in successful.");
+    showMessage("Google login successful. Loading your profile...");
   } catch (error) {
-    message(error.message || "Google sign-in failed.");
+    showMessage("Google login error: " + error.message);
+  }
+});
+
+// FORGOT PASSWORD
+$("resetBtn").addEventListener("click", async () => {
+  const email = $("email").value.trim();
+
+  if (!email) {
+    showMessage("Enter your email address first.");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showMessage("Password reset email sent. Check your inbox.");
+  } catch (error) {
+    showMessage("Password reset error: " + error.message);
   }
 });
 
 // CHECK EMAIL VERIFICATION
 $("verifyBtn").addEventListener("click", async () => {
   try {
-    const user = requireUser();
-    if (!user) return;
+    const user = auth.currentUser;
 
-    await reload(user);
+    if (!user) {
+      showMessage("Please log in first.");
+      return;
+    }
+
+    await user.reload();
 
     if (auth.currentUser.emailVerified) {
-      message("Your email is verified. You can save your profile.");
+      showMessage("Email verified successfully. You can save your profile.");
     } else {
-      message("Email is not verified yet. Open the verification link sent to your email, then try again.");
+      showMessage("Email is not verified yet. Please check your inbox.");
     }
   } catch (error) {
-    message(error.message || "Verification check failed.");
+    showMessage("Verification check error: " + error.message);
   }
 });
   
-</script>
-</body>
 // SAVE USER PROFILE
 $("saveProfileBtn").addEventListener("click", async () => {
+  const user = auth.currentUser;
+
+  if (!user) {
+    showMessage("Please log in first.");
+    return;
+  }
+
+  await user.reload();
+
+  if (!auth.currentUser.emailVerified) {
+    showMessage("Please verify your email before saving your profile.");
+    return;
+  }
+
+  const fullName = $("profileFullName").value.trim();
+  const username = cleanUsername($("profileUsername").value);
+  const country = $("profileCountry").value;
+  const gender = $("profileGender").value;
+
+  if (fullName.length < 2 || !validUsername(username) || !country || !gender) {
+    showMessage("Please complete all fields correctly.");
+    return;
+  }
+
+  const userRef = doc(db, "users", user.uid);
+  const usernameRef = doc(db, "usernames", username);
+
   try {
-    const user = requireUser();
-    if (!user) return;
-
-    await reload(user);
-
-    if (!auth.currentUser.emailVerified) {
-      throw new Error("Please verify your email before saving your profile.");
-    }
-
-    const data = profileValues();
-    validateProfile(data);
-
-    const userRef = doc(db, "users", user.uid);
-    const usernameRef = doc(db, "usernames", data.username);
-
-    message("Saving your MineX profile...");
-
     await runTransaction(db, async (transaction) => {
       const userSnap = await transaction.get(userRef);
       const usernameSnap = await transaction.get(usernameRef);
 
       if (userSnap.exists()) {
-        throw new Error("Your profile has already been created.");
+        const oldData = userSnap.data();
+
+        if (oldData.username !== username) {
+          throw new Error("Username cannot be changed after profile creation.");
+        }
+
+        transaction.update(userRef, {
+          fullName,
+          country,
+          gender
+        });
+      } else {
+        if (usernameSnap.exists()) {
+          throw new Error("This username is already taken. Choose another.");
+        }
+
+        transaction.set(userRef, {
+          uid: user.uid,
+          fullName,
+          username,
+          email: user.email,
+          country,
+          gender,
+          createdAt: serverTimestamp()
+        });
+
+        transaction.set(usernameRef, {
+          uid: user.uid
+        });
       }
-
-      if (usernameSnap.exists()) {
-        throw new Error("This username is already taken. Choose another.");
-      }
-
-      transaction.set(userRef, {
-        uid: user.uid,
-        fullName: data.fullName,
-        username: data.username,
-        email: user.email,
-        country: data.country,
-        gender: data.gender,
-        createdAt: serverTimestamp()
-      });
-
-      transaction.set(usernameRef, {
-        uid: user.uid
-      });
     });
 
-    $("profileInfo").textContent =
-      "Name: " + data.fullName +
-      " | Username: @" + data.username +
-      " | Country: " + data.country;
-
-    message("Your MineX profile has been saved successfully!");
+    sessionStorage.removeItem("minexPendingProfile");
+    $("profileUsername").readOnly = true;
+    showMessage("Your MineX profile has been saved successfully!");
+    $("profileInfo").textContent = "Your MineX profile is complete.";
   } catch (error) {
-    message(error.message || "Profile could not be saved.");
+    showMessage("Profile save error: " + error.message);
   }
 });
 
@@ -605,126 +712,68 @@ $("saveProfileBtn").addEventListener("click", async () => {
 $("logoutBtn").addEventListener("click", async () => {
   try {
     await signOut(auth);
-    message("You have signed out successfully.");
+    showMessage("You have signed out successfully.");
   } catch (error) {
-    message(error.message || "Sign out failed.");
+    showMessage("Sign out error: " + error.message);
   }
 });
 
 // AUTHENTICATION STATE
 onAuthStateChanged(auth, async (user) => {
+  currentUser = user;
+
   if (!user) {
-    displayUser(null);
+    showAuthArea();
     return;
   }
 
-  displayUser(user);
+  showProfileArea(user);
 
   try {
-    await reload(user);
-
-    if (!auth.currentUser.emailVerified) {
-      message("Please verify your email before creating your MineX profile.");
-      return;
-    }
-
     const userRef = doc(db, "users", user.uid);
-    const profileSnap = await getDoc(userRef);
+    const userSnap = await getDoc(userRef);
 
-    if (profileSnap.exists()) {
-      const data = profileSnap.data();
-
-      $("fullName").value = data.fullName || "";
-      $("username").value = data.username || "";
-      $("country").value = data.country || "";
-      $("gender").value = data.gender || "";
-
-      $("profileInfo").textContent =
-        "Name: " + (data.fullName || "") +
-        " | Username: @" + (data.username || "") +
-        " | Country: " + (data.country || "");
-
-      message("Welcome back to MineX! Your profile is ready.");
-    } else {
-      message("Email verified! Complete your profile and save it.");
-    }
-  } catch (error) {
-    message("Account loaded, but profile could not be checked: " + error.message);
-  }
-});
-
-// MINEX PROFILE FORM — FINAL SETUP
-
-$("profileInfo").insertAdjacentHTML("afterend", `
-  <div id="minexProfileFields">
-    <h3>Complete Your Profile</h3>
-
-    <label>Full Name</label>
-    <input id="profileFullName" type="text"
-      placeholder="Enter your full name">
-
-    <label>Username</label>
-    <input id="profileUsername" type="text"
-      placeholder="Choose a unique username">
-
-    <label>Country</label>
-    <select id="profileCountry">
-      <option value="">Select country</option>
-      <option value="Pakistan">Pakistan</option>
-      <option value="India">India</option>
-      <option value="United States">United States</option>
-      <option value="United Kingdom">United Kingdom</option>
-      <option value="United Arab Emirates">United Arab Emirates</option>
-      <option value="Saudi Arabia">Saudi Arabia</option>
-      <option value="Bangladesh">Bangladesh</option>
-      <option value="Other">Other</option>
-    </select>
-
-    <label>Gender</label>
-    <select id="profileGender">
-      <option value="">Select gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-  </div>
-`);
-
-// Use the new profile fields
-profileValues = function () {
-  return {
-    fullName: $("profileFullName").value.trim(),
-    username: cleanUsername($("profileUsername").value),
-    country: $("profileCountry").value,
-    gender: $("profileGender").value
-  };
-};
-
-// Load saved profile into the visible fields
-onAuthStateChanged(auth, async (user) => {
-  if (!user) return;
-
-  try {
-    const profileRef = doc(db, "users", user.uid);
-    const profileSnapshot = await getDoc(profileRef);
-
-    if (profileSnapshot.exists()) {
-      const data = profileSnapshot.data();
+    if (userSnap.exists()) {
+      const data = userSnap.data();
 
       $("profileFullName").value = data.fullName || "";
       $("profileUsername").value = data.username || "";
       $("profileCountry").value = data.country || "";
       $("profileGender").value = data.gender || "";
+      $("profileUsername").readOnly = true;
+
+      $("profileInfo").textContent = "Welcome back, " + (data.fullName || user.email);
+    } else {
+      let pending = {};
+
+      try {
+        pending = JSON.parse(
+          sessionStorage.getItem("minexPendingProfile") || "{}"
+        );
+      } catch (e) {
+        pending = {};
+      }
+
+      $("profileFullName").value = pending.fullName || user.displayName || "";
+      $("profileUsername").value = pending.username || "";
+      $("profileCountry").value = pending.country || "";
+      $("profileGender").value = pending.gender || "";
+      $("profileUsername").readOnly = false;
+
+      $("profileInfo").textContent =
+        "Welcome! Complete your profile and save it to join MineX.";
+    }
+
+    if (!user.emailVerified) {
+      showMessage("Please verify your email before saving your profile.");
+    } else {
+      showMessage("You are signed in. Complete or review your MineX profile.");
     }
   } catch (error) {
-    message("Profile loading error: " + error.message);
+    showMessage("Could not load profile: " + error.message);
   }
 });
 
-message("MineX account system loaded. Please test registration and profile setup.");
 </script>
 </body>
 </html>
-
-</html>
-
-
