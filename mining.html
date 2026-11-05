@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MineX Mining Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#fff;font-family:Arial,sans-serif;padding:20px}
+.container{max-width:650px;margin:auto}
+header{text-align:center;padding:20px}
+h1{color:#35d6a0;margin-bottom:5px}
+.subtitle{color:#9ba8c7}
+.card{background:#151e35;border:1px solid #293654;border-radius:15px;padding:20px;margin:15px 0}
+.balance{text-align:center}
+.amount{font-size:38px;color:#35d6a0;font-weight:bold;margin:15px}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#35d6a0;color:#07130f;font-size:16px;font-weight:bold}
+button:disabled{background:#526078;color:#d4d9e4}
+.row{display:flex;justify-content:space-between;gap:10px;margin:12px 0}
+.value{color:#35d6a0;font-weight:bold}
+.note{color:#aab5cc;font-size:13px;line-height:1.6}
+.status{color:#ffc76b;font-weight:bold}
+a{color:#35d6a0;text-decoration:none}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:10px;border-bottom:1px solid #293654}
+footer{text-align:center;color:#8793ad;font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<h1>MineX</h1>
+<div class="subtitle">Mining Dashboard</div>
+</header>
+
+<div class="card balance">
+<h2>Mining Balance</h2>
+<div class="amount">0 CP</div>
+<div class="status">Mining Not Active Yet</div>
+<p class="note">Your Community Points dashboard preview.</p>
+</div>
+
+<div class="card">
+<h3>Daily Mining</h3>
+<div class="row">
+<span>Proposed Daily Reward</span>
+<span class="value">10 CP</span>
+</div>
+<div class="row">
+<span>Mining Duration</span>
+<span>24 Hours</span>
+</div>
+<button disabled>Coming Soon</button>
+</div>
+
+<div class="card">
+<h3>Referral Rewards</h3>
+<div class="row">
+<span>New Verified Referral</span>
+<span class="value">100 CP</span>
+</div>
+<div class="row">
+<span>Referrer Reward</span>
+<span class="value">25 CP</span>
+</div>
+<div class="row">
+<span>Active Referral Boost</span>
+<span class="value">+20%</span>
+</div>
+<p class="note">These are proposed reward settings, not active rewards.</p>
+</div>
+
+<div class="card">
+<h3>Mining History</h3>
+<table>
+<tr><th>Activity</th><th>Reward</th><th>Status</th></tr>
+<tr><td>No activity</td><td>0 CP</td><td>—</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>Important Information</h3>
+<p class="note">
+Community Points (CP) are proposed internal MineX points. They are not MNX tokens, cryptocurrency, USDT, cash, or guaranteed income. No mining or rewards are active yet.
+</p>
+</div>
+
+<footer>
+MineX Community Ecosystem<br>
+<a href="index.html">Back to MineX Home</a>
+</footer>
+
+</div>
+</body>
+</html>
