@@ -397,5 +397,72 @@ onAuthStateChanged(auth,async user=>{
  }catch(error){showPanel("welcomePanel");showMessage("Could not load your profile: "+friendlyError(error),"error");}
 });
 </script>
+ <!-- MineX Referral Section -->
+<div id="minexReferral" style="display:none;background:#172338;color:white;padding:20px;margin:20px auto;border-radius:12px;max-width:600px;">
+  <h2 style="color:#42e8a5;">MineX Referral Program</h2>
+  <p>Invite friends and grow the MineX community.</p>
+
+  <p>Your Referral Code:</p>
+  <h3 id="myReferralCode">Loading...</h3>
+
+  <p>Your Referral Link:</p>
+  <input id="myReferralLink" readonly style="width:100%;padding:10px;">
+
+  <button id="copyReferral" style="padding:10px;margin-top:10px;">
+    Copy Referral Link
+  </button>
+</div>
+ <script type="module">
+import { getApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+const app = getApp();
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const section = document.getElementById("minexReferral");
+const codeBox = document.getElementById("myReferralCode");
+const linkBox = document.getElementById("myReferralLink");
+const copyButton = document.getElementById("copyReferral");
+
+if (section) section.style.display = "none";
+
+onAuthStateChanged(auth, async (user) => {
+  if (section) section.style.display = "none";
+
+  if (!user || !user.emailVerified) return;
+
+  try {
+    const snap = await getDoc(doc(db, "users", user.uid));
+
+    if (!snap.exists()) return;
+
+    const username = snap.data().username;
+    if (!username) return;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("ref", username);
+
+    codeBox.textContent = username;
+    linkBox.value = url.toString();
+    section.style.display = "block";
+
+  } catch (error) {
+    console.error("Referral loading error:", error);
+  }
+});
+
+copyButton?.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(linkBox.value);
+    alert("MineX Referral Link Copied!");
+  } catch (error) {
+    linkBox.select();
+    const copied = document.execCommand("copy");
+    alert(copied ? "Referral Link Copied!" : "Please copy the link manually.");
+  }
+});
+ </script>
 </body>
 </html>
