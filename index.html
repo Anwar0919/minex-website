@@ -133,7 +133,7 @@ input:focus,select:focus{border-color:var(--green)}
 <h3>Login to MineX</h3>
 <div class="field"><label for="emailLogin">Email Address</label><input id="emailLogin" type="email" autocomplete="email" placeholder="you@example.com"></div>
 <div class="field"><label for="passwordLogin">Password</label><input id="passwordLogin" type="password" autocomplete="current-password" placeholder="Your password"></div>
-<button class="small-link" id="resetBtn" type="button">Forgot Password?</button>
+<button class="small-link" id="resendVerificationBtn" type="button">Resend Verification Email</button>
 <div class="auth-actions">
 <button class="btn" id="loginBtn" type="button">Login</button>
 <button class="btn secondary" id="backFromLogin" type="button">Back</button>
@@ -414,7 +414,7 @@ onAuthStateChanged(auth,async user=>{
 </div>
  <script type="module">
 import { getApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const app = getApp();
@@ -425,7 +425,41 @@ const section = document.getElementById("minexReferral");
 const codeBox = document.getElementById("myReferralCode");
 const linkBox = document.getElementById("myReferralLink");
 const copyButton = document.getElementById("copyReferral");
+const resendButton = document.getElementById("resendVerificationBtn");
 
+resendButton?.addEventListener("click", async () => {
+  const email = document.getElementById("emailLogin").value.trim();
+  const password = document.getElementById("passwordLogin").value;
+
+  if (!email || !password) {
+    alert("Enter your email and password first.");
+    return;
+  }
+
+  resendButton.disabled = true;
+
+  try {
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    await credential.user.reload();
+
+    if (credential.user.emailVerified) {
+      alert("Your email is already verified.");
+    } else {
+      await sendEmailVerification(credential.user);
+      alert("Verification email requested. Check Inbox and Spam.");
+    }
+
+    await signOut(auth);
+
+  } catch (error) {
+    if (auth.currentUser) {
+      try { await signOut(auth); } catch (e) {}
+    }
+    alert("Error: " + error.message);
+  } finally {
+    resendButton.disabled = false;
+  }
+});
 if (section) section.style.display = "none";
 
 onAuthStateChanged(auth, async (user) => {
