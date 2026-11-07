@@ -230,6 +230,43 @@ function showMessage(message,type="info"){
 }
 function cleanUsername(value){return value.trim().toLowerCase();}
 function validUsername(value){return /^[a-z0-9_]{3,20}$/.test(value);}
+ let usernameCheckNumber = 0;
+
+$("username").addEventListener("input", async () => {
+ const username = cleanUsername($("username").value);
+ const status = $("usernameStatus");
+ const checkNumber = ++usernameCheckNumber;
+
+ if (!username) {
+  status.textContent = "";
+  return;
+ }
+
+ if (!validUsername(username)) {
+  status.textContent = "Use 3–20 letters, numbers or underscore.";
+  status.style.color = "orange";
+  return;
+ }
+
+ status.textContent = "Checking...";
+ status.style.color = "gray";
+
+ try {
+  const snap = await getDoc(doc(db, "usernames", username));
+  if (checkNumber !== usernameCheckNumber) return;
+
+  if (snap.exists()) {
+   status.textContent = "Username already taken. Choose another.";
+   status.style.color = "red";
+  } else {
+   status.textContent = "Username available!";
+   status.style.color = "lightgreen";
+  }
+ } catch (error) {
+  status.textContent = "Could not check. Try again.";
+  status.style.color = "orange";
+ }
+});
 function friendlyError(error){
  const code=error?.code||"";
  const messages={
