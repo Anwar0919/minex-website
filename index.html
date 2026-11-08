@@ -458,35 +458,17 @@ $("signupBtn").addEventListener("click", async () => {
 
     await sendEmailVerification(result.user);
 
-    await runTransaction(db, async (transaction) => {
-      const usernameRef = doc(db, "usernames", username);
-      const userRef = doc(db, "users", result.user.uid);
+    $("profileFullName").value = fullName;
+$("profileUsername").value = username;
+$("profileCountry").value = country;
+$("profileGender").value = gender;
+$("profileWelcome").textContent = "Account created. Please verify your email, then save your profile.";
+showPanel("profilePanel");
 
-      const existing = await transaction.get(usernameRef);
+showMessage("Account created. Please verify your email, then save your profile.");
+showToast("Verification email sent.", "success");
 
-      if (existing.exists()) {
-        throw new Error("USERNAME_TAKEN");
-      }
-
-      transaction.set(usernameRef, {
-        uid: result.user.uid,
-        createdAt: serverTimestamp()
-      });
-
-      transaction.set(userRef, {
-        uid: result.user.uid,
-        fullName,
-        username,
-        email,
-        country,
-        gender,
-        emailVerified: false,
-        createdAt: serverTimestamp()
-      });
-    });
-
-    showMessage("Account created. Check your email for verification.");
-    showToast("Verification email sent.", "success");
+    
   } catch (error) {
     console.error(error);
 
@@ -748,6 +730,7 @@ onAuthStateChanged(auth, async (user) => {
     showMessage("Could not load your account. Please refresh.");
   }
 });
+  
 </script>
 
 </body>
