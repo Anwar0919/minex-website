@@ -574,7 +574,7 @@ Please verify your email before saving your profile.
 </div>
 </div>
 </section>
-<section id="dashboard">
+<section id="dashboard" class="hidden">
 <div class="container">
 
 <h2>MineX User Dashboard</h2>
@@ -1547,6 +1547,7 @@ dashboardContainer.appendChild(adminPanel);
 $("signOutBtn").addEventListener("click", async () => {
   try {
     await signOut(auth);
+    $("dashboard").classList.add("hidden");
     hideAppSections();
     showPanel("welcomePanel");
     showAuthMessage("You have signed out of MineX.");
@@ -1558,7 +1559,12 @@ $("signOutBtn").addEventListener("click", async () => {
 
 // Restore account state after login or page refresh
 
-onAuthStateChanged(auth, async (user) => {
+if (!user) {
+  showPanel("welcomePanel");
+  hideAppSections();
+  $("dashboard").classList.add("hidden");
+  return;
+}
   if (!user) {
     showPanel("welcomePanel");
     hideAppSections();
@@ -1568,7 +1574,8 @@ onAuthStateChanged(auth, async (user) => {
   try {
     await user.reload();
 
-    if (!user.emailVerified) {
+$("dashboard").classList.add("hidden");
+hideAppSections();
       await loadMineXProfile(user);
 
       $("verificationNotice").textContent =
@@ -1579,6 +1586,7 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     await loadMineXProfile(user);
+  $("dashboard").classList.remove("hidden");
     updateMineXDashboard();
     await loadReferralDetails(user);
 
