@@ -1565,12 +1565,13 @@ if (!user) {
   $("dashboard").classList.add("hidden");
   return;
 }
-  if (!user) {
-    showPanel("welcomePanel");
-    hideAppSections();
-    return;
-  }
+      if (!user.emailVerified) {
+  try {
+    await user.reload();
 
+    if (!user.emailVerified) {
+      $("dashboard").classList.add("hidden");
+      hideAppSections();
   try {
     await user.reload();
 
