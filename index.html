@@ -1559,24 +1559,21 @@ $("signOutBtn").addEventListener("click", async () => {
 
 // Restore account state after login or page refresh
 
-if (!user) {
-  showPanel("welcomePanel");
-  hideAppSections();
-  $("dashboard").classList.add("hidden");
-  return;
-}
-      if (!user.emailVerified) {
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    showPanel("welcomePanel");
+    hideAppSections();
+    $("dashboard").classList.add("hidden");
+    return;
+  }
+
   try {
     await user.reload();
 
     if (!user.emailVerified) {
       $("dashboard").classList.add("hidden");
       hideAppSections();
-  try {
-    await user.reload();
 
-$("dashboard").classList.add("hidden");
-hideAppSections();
       await loadMineXProfile(user);
 
       $("verificationNotice").textContent =
@@ -1587,7 +1584,7 @@ hideAppSections();
     }
 
     await loadMineXProfile(user);
-  $("dashboard").classList.remove("hidden");
+    $("dashboard").classList.remove("hidden");
     updateMineXDashboard();
     await loadReferralDetails(user);
 
