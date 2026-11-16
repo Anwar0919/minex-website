@@ -3,723 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d18">
-
-<title>MineX — Community Ecosystem</title>
-<meta name="description" content="MineX Community Mining Ecosystem">
-
+<meta name="theme-color" content="#080d19">
+<title>MineX - Mining App</title>
+  
 <style>
-:root {
-  --bg:#080d18;
-  --panel:#101a2b;
-  --green:#20e0a0;
-  --blue:#4b91ff;
-  --text:#f4f7fb;
-  --muted:#a5b2c5;
-  --border:#24334a;
-  --danger:#ff7373;
-}
-
 * {
-  box-sizing:border-box;
-}
-
-html {
-  scroll-behavior:smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,sans-serif;
-  line-height:1.6;
+  background: #080d19;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 18px;
 }
 
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#080d18;
-  border-bottom:1px solid var(--border);
-  padding:14px 5%;
+#app {
+  max-width: 600px;
+  margin: auto;
 }
 
-nav {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
+.topbar {
+  text-align: center;
+  padding: 25px 10px;
 }
 
-.logo {
-  font-size:28px;
-  font-weight:900;
-  color:var(--green);
-  letter-spacing:1px;
+.topbar h1 {
+  font-size: 38px;
 }
 
-.nav-links {
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
+.topbar h1 span {
+  color: #00e5a0;
 }
 
-.nav-links a {
-  color:var(--text);
-  text-decoration:none;
-  font-size:14px;
-}
-
-.nav-links a:hover {
-  color:var(--green);
+.topbar p {
+  color: #9ba8bd;
+  margin-top: 8px;
 }
 
 section {
-  padding:55px 6%;
-}
-
-.container {
-  max-width:1100px;
-  margin:auto;
-}
-
-.hero {
-  min-height:430px;
-  display:flex;
-  align-items:center;
-  text-align:center;
-  background:radial-gradient(
-    ellipse at top,
-    #123d3a 0%,
-    transparent 65%
-  );
-}
-
-.hero h1 {
-  font-size:clamp(40px,8vw,68px);
-  line-height:1.15;
-}
-
-.hero h1 span {
-  color:var(--green);
-}
-
-.hero p {
-  max-width:680px;
-  margin:0 auto 25px;
-  color:var(--muted);
-  font-size:17px;
+  background: #111b2d;
+  border: 1px solid #263751;
+  border-radius: 16px;
+  padding: 22px;
+  margin: 18px 0;
 }
 
 h2 {
-  font-size:30px;
+  color: #00e5a0;
+  margin-bottom: 18px;
 }
 
-.subtitle {
-  color:var(--muted);
+p {
+  color: #c2ccda;
+  margin: 12px 0;
 }
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(
-    auto-fit,
-    minmax(220px,1fr)
-  );
-  gap:18px;
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin: 9px 0;
+  border-radius: 9px;
+  border: 1px solid #354660;
+  background: #080d19;
+  color: white;
 }
 
-.card {
-  padding:22px;
-  border:1px solid var(--border);
-  background:var(--panel);
-  border-radius:14px;
-}
-
-.card h3 {
-  color:var(--green);
-  margin-top:0;
-}
-
-.btn {
-  display:inline-block;
-  padding:12px 20px;
-  border:0;
-  border-radius:9px;
-  background:var(--green);
-  color:#06150f;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.btn.secondary {
-  background:transparent;
-  border:1px solid var(--green);
-  color:var(--green);
-}
-
-.btn.blue {
-  background:var(--blue);
-  color:white;
-}
-
-.btn:disabled {
-  opacity:.55;
-  cursor:not-allowed;
-}
-
-.panel {
-  max-width:750px;
-  margin:20px auto;
-  padding:22px;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-}
-
-.field {
-  margin:14px 0;
-}
-
-label {
-  display:block;
-  margin-bottom:6px;
-  font-size:14px;
-}
-
-input,select {
-  width:100%;
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  background:#080f1d;
-  color:var(--text);
-  font-size:15px;
-}
-
-input:focus,select:focus {
-  outline:none;
-  border-color:var(--green);
-}
-
-.auth-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-}
-
-.auth-actions .btn {
-  flex:1;
-  min-width:130px;
-}
-
-.notice {
-  padding:12px;
-  border-radius:8px;
-  background:#17263a;
-  color:var(--muted);
-  margin:12px 0;
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 9px;
+  background: #00d99a;
+  color: #06130f;
+  font-weight: bold;
 }
 
 .hidden {
-  display:none!important;
+  display: none !important;
+}
+  
+#dashboardMenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
 }
 
-.center {
-  text-align:center;
+#dashboardMenu button {
+  min-height: 65px;
+  background: #172943;
+  color: #00e5a0;
+  border: 1px solid #34516d;
 }
 
-footer {
-  border-top:1px solid var(--border);
-  padding:25px 6%;
-  text-align:center;
-  color:var(--muted);
+#miningSection,
+#tasksSection,
+#walletSection,
+#referralSection,
+#profileSection {
+  margin-top: 20px;
+  background: #0b1423;
 }
 
-#toast {
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(92%,500px);
-  padding:14px;
-  border-radius:10px;
-  background:#17263a;
-  border:1px solid var(--blue);
-  color:white;
-  text-align:center;
-  display:none;
-  z-index:999;
+#miningTimer {
+  font-size: 30px;
+  text-align: center;
+  color: #00e5a0;
+  font-weight: bold;
+  padding: 15px;
 }
 
-#toast.show {
-  display:block;
+strong {
+  color: #00e5a0;
 }
-
-@media(max-width:600px) {
-  .nav-links {
-    gap:10px;
-  }
-
-  section {
-    padding:40px 5%;
-  }
-
-  .auth-actions {
-    flex-direction:column;
-  }
-
-  .auth-actions .btn {
-    width:100%;
-  }
-}
+  
 </style>
+  
 </head>
-
 <body>
-  <header>
-<nav>
-<a class="logo" href="#home">MineX</a>
 
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#ecosystem">Ecosystem</a>
-<a href="#account">Account</a>
-<a href="#dashboard">Dashboard</a>
-<a href="#roadmap">Roadmap</a>
-</div>
-</nav>
+<div id="app">
+
+<header class="topbar">
+  <h1>Mine<span>X</span></h1>
+  <p>Community Mining Project</p>
 </header>
 
-<main>
-
-<section class="hero" id="home">
-<div class="container">
-
-<h1>Welcome to <span>MineX</span></h1>
-
-<p>
-A global community-powered digital ecosystem
-built around participation, transparency and
-future blockchain innovation.
-</p>
-
-<a class="btn" href="#account">Join MineX</a>
-<a class="btn secondary" href="#about">Explore</a>
-
-</div>
+<section id="welcomePanel">
+  <h2>Welcome to MineX</h2>
+  <p>Build the future together.</p>
+  <button id="showSignupBtn">Create Account</button>
+  <button id="showLoginBtn">Login</button>
 </section>
 
-<section id="about">
-<div class="container">
-
-<h2>About MineX</h2>
-
-<p class="subtitle">
-MineX aims to build a global community through
-digital participation, learning and transparent
-development.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Community First</h3>
-<p>Building a welcoming global community.</p>
-</div>
-
-<div class="card">
-<h3>Transparency</h3>
-<p>Clear updates about project development.</p>
-</div>
-
-<div class="card">
-<h3>Future Vision</h3>
-<p>Exploring future blockchain innovation.</p>
-</div>
-
-</div>
-</div>
+<section id="signupPanel" class="hidden">
+  <h2>Create Account</h2>
+  <input id="signupName" placeholder="Full Name">
+  <input id="signupEmail" type="email" placeholder="Email">
+  <input id="signupPassword" type="password" placeholder="Password">
+  <button id="signupBtn">Sign Up</button>
+  <button id="backWelcomeBtn">Back</button>
 </section>
 
-<section id="ecosystem">
-<div class="container">
+<section id="loginPanel" class="hidden">
+  <h2>Login to MineX</h2>
+  <input id="loginEmail" type="email" placeholder="Email">
+  <input id="loginPassword" type="password" placeholder="Password">
+  <button id="loginBtn">Login</button>
+  <button id="backLoginBtn">Back</button>
+</section>
+  
+<section id="profilePanel" class="hidden">
+  <h2>Complete Your MineX Profile</h2>
 
-<h2>MineX Ecosystem</h2>
+  <input id="profileFullName" placeholder="Full Name">
+  <input id="profileUsername" placeholder="Username">
 
-<div class="grid">
+  <select id="profileCountry">
+    <option value="">Select Country</option>
+    <option value="Pakistan">Pakistan</option>
+    <option value="India">India</option>
+    <option value="United States">United States</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="Other">Other</option>
+  </select>
 
-<div class="card">
-<h3>Mining</h3>
-<p>Community points system — Coming Soon.</p>
-</div>
-
-<div class="card">
-<h3>Referral</h3>
-<p>Community invitation system — Coming Soon.</p>
-</div>
-
-<div class="card">
-<h3>MineX Wallet</h3>
-<p>Wallet features — Coming Soon.</p>
-</div>
-
-<div class="card">
-<h3>MineX Tasks</h3>
-<p>Community tasks — Coming Soon.</p>
-</div>
-
-<div class="card">
-<h3>MineX Academy</h3>
-<p>Learn about crypto and blockchain.</p>
-</div>
-
-</div>
-</div>
+  <button id="saveProfileBtn">Save Profile</button>
 </section>
 
-<section id="roadmap">
-<div class="container">
-
-<h2>MineX Roadmap</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Phase 1</h3>
-<p>Website and account foundation.</p>
-</div>
-
-<div class="card">
-<h3>Phase 2</h3>
-<p>Mining and community points.</p>
-</div>
-
-<div class="card">
-<h3>Phase 3</h3>
-<p>Tasks and referral system.</p>
-</div>
-
-<div class="card">
-<h3>Phase 4</h3>
-<p>Wallet research and ecosystem development.</p>
-</div>
-
-</div>
-</div>
-</section>
-<section id="account">
-<div class="container">
-
-<h2>MineX Account</h2>
-<p class="subtitle">Sign up or log in to continue.</p>
-
-<div class="panel">
-
-<div id="authMessage" class="notice">
-Welcome to MineX. Choose an account option.
-</div>
-
-<div id="welcomePanel">
-<h3>Welcome to MineX</h3>
-
-<div class="auth-actions">
-<button class="btn" id="showSignupBtn" type="button">Sign Up</button>
-<button class="btn secondary" id="showLoginBtn" type="button">Login</button>
-<button class="btn blue" id="googleBtn" type="button">Continue with Google</button>
-</div>
-</div>
-
-<div id="signupPanel" class="hidden">
-<h3>Create Your Account</h3>
-
-<div class="field">
-<label>Full Name</label>
-<input id="fullName" type="text" placeholder="Your full name">
-</div>
-
-<div class="field">
-<label>Username</label>
-<input id="username" type="text" maxlength="20" placeholder="Unique username">
-<small id="usernameStatus"></small>
-</div>
-
-<div class="field">
-<label>Email Address</label>
-<input id="signupEmail" type="email" placeholder="Your email">
-</div>
-
-<div class="field">
-<label>Password</label>
-<input id="signupPassword" type="password" placeholder="At least 6 characters">
-</div>
-
-<div class="field">
-<label>Country</label>
-<select id="country">
-<option value="">Select Country</option>
-<option>Pakistan</option>
-<option>Afghanistan</option>
-<option>United Arab Emirates</option>
-<option>Saudi Arabia</option>
-<option>United Kingdom</option>
-<option>United States</option>
-<option>India</option>
-<option>Bangladesh</option>
-<option>Turkey</option>
-<option>Other</option>
-</select>
-</div>
-
-<div class="field">
-<label>Gender</label>
-<select id="gender">
-<option value="">Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-<option>Prefer not to say</option>
-</select>
-</div>
-
-<div class="auth-actions">
-<button class="btn" id="signupBtn" type="button">Create Account</button>
-<button class="btn secondary" id="backFromSignup" type="button">Back</button>
-</div>
-</div>
-
-<div id="loginPanel" class="hidden">
-<h3>Login to MineX</h3>
-
-<div class="field">
-<label>Email Address</label>
-<input id="loginEmail" type="email" placeholder="Your email">
-</div>
-
-<div class="field">
-<label>Password</label>
-<input id="loginPassword" type="password" placeholder="Your password">
-</div>
-
-<button class="small-link" id="resetBtn" type="button">Forgot Password?</button>
-
-<div class="auth-actions">
-<button class="btn" id="loginBtn" type="button">Login</button>
-<button class="btn secondary" id="backFromLogin" type="button">Back</button>
-</div>
-</div>
-
-<div id="profilePanel" class="hidden">
-<h3>Complete Your MineX Profile</h3>
-<p id="profileWelcome" class="subtitle"></p>
-
-<div class="field">
-<label>Full Name</label>
-<input id="profileFullName" type="text">
-</div>
-
-<div class="field">
-<label>Username</label>
-<input id="profileUsername" type="text" maxlength="20">
-</div>
-
-<div class="field">
-<label>Country</label>
-<select id="profileCountry">
-<option value="">Select Country</option>
-<option>Pakistan</option>
-<option>Afghanistan</option>
-<option>United Arab Emirates</option>
-<option>Saudi Arabia</option>
-<option>United Kingdom</option>
-<option>United States</option>
-<option>India</option>
-<option>Bangladesh</option>
-<option>Turkey</option>
-<option>Other</option>
-</select>
-</div>
-
-<div class="field">
-<label>Gender</label>
-<select id="profileGender">
-<option value="">Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-<option>Prefer not to say</option>
-</select>
-</div>
-
-<div class="notice" id="verificationNotice">
-Please verify your email before saving your profile.
-</div>
-
-<div class="auth-actions">
-<button class="btn secondary" id="checkVerificationBtn" type="button">Check Email Verification</button>
-<button class="btn" id="saveProfileBtn" type="button">Save Profile</button>
-</div>
-</div>
-
-<div id="savedPanel" class="hidden">
-<h3>MineX Profile</h3>
-<p id="savedWelcome"></p>
-<div class="notice" id="savedUsername"></div>
-<div class="notice" id="referralArea">Referral link will appear after email verification.</div>
-<button class="btn secondary" id="signOutBtn" type="button">Sign Out</button>
-</div>
-
-</div>
-</div>
-</section>
 <section id="dashboard" class="hidden">
-<div class="container">
-
-<h2>MineX User Dashboard</h2>
-<p class="subtitle">Your community activity and account overview.</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Mining Balance</h3>
-<h2 id="miningBalance">0 CP</h2>
-<p>Demo points only</p>
-</div>
-
-<div class="card">
-<h3>Mining Status</h3>
-<p id="miningStatus">Not Active</p>
-</div>
-
-<div class="card">
-<h3>My Tasks</h3>
-<h2 id="taskCount">0</h2>
-<p>Completed tasks</p>
-</div>
-
-<div class="card">
-<h3>My Referrals</h3>
-<h2 id="referralCount">0</h2>
-<p>Invited members</p>
-</div>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>Mining</h3>
-<p>Start and manage your demo mining activity.</p>
-<button class="btn" id="openMiningBtn" type="button">Open Mining</button>
-</div>
-
-<div class="card">
-<h3>Tasks</h3>
-<p>View available community tasks.</p>
-<button class="btn" id="openTasksBtn" type="button">Open Tasks</button>
-</div>
-
-<div class="card">
-<h3>Wallet</h3>
-<p>MineX wallet features — Coming Soon.</p>
-<button class="btn" id="openWalletBtn" type="button">Open Wallet</button>
-</div>
-
-<div class="card">
-<h3>Referral</h3>
-<p>Invite friends and view your referral details.</p>
-<button class="btn" id="openReferralBtn" type="button">Open Referral</button>
-</div>
-
-</div>
-</div>
+  <h2>MineX Dashboard</h2>
+  <p id="welcomeUser"></p>
 </section>
+  
+<div id="dashboardMenu" class="hidden">
+  <button id="openMiningBtn">⛏️ Mining</button>
+  <button id="openTasksBtn">📋 Tasks</button>
+  <button id="openWalletBtn">💰 Wallet</button>
+  <button id="openReferralBtn">👥 Referral</button>
+  <button id="openProfileBtn">👤 Profile</button>
+</div>
 
 <section id="miningSection" class="hidden">
-<div class="container">
-<div class="panel">
-<h2>MineX Mining</h2>
-<p id="miningTimer">24:00:00</p>
-<p id="miningPageStatus">Mining is not active.</p>
-<button class="btn" id="startMiningBtn" type="button">Start Mining</button>
-<button class="btn secondary" id="stopMiningBtn" type="button">Stop Mining</button>
-</div>
-</div>
+  <h2>MineX Mining</h2>
+  <p>Mining Balance: <strong id="miningBalance">0 CP</strong></p>
+  <p id="miningStatus">Mining Not Active Yet</p>
+  <p id="miningTimer">24:00:00</p>
+  <button id="startMiningBtn">Start Demo Mining</button>
 </section>
 
 <section id="tasksSection" class="hidden">
-<div class="container">
-<div class="panel">
-<h2>MineX Tasks</h2>
-<p>Community tasks will be displayed here.</p>
-<div id="taskList"></div>
-</div>
-</div>
+  <h2>Tasks</h2>
+  <p>Tasks Coming Soon</p>
 </section>
 
 <section id="walletSection" class="hidden">
-<div class="container">
-<div class="panel">
-<h2>MineX Wallet</h2>
-<p>Wallet dashboard</p>
-<div class="notice">MNX / USDT features coming soon.</div>
-<p id="walletBalance">Demo Balance: 0 CP</p>
-<button class="btn secondary" id="connectWalletBtn" type="button">WalletConnect — Coming Soon</button>
-</div>
-</div>
+  <h2>MineX Wallet</h2>
+  <p>USDT Pair Coming Soon</p>
 </section>
 
 <section id="referralSection" class="hidden">
-<div class="container">
-<div class="panel">
-<h2>MineX Referral</h2>
-<p>Your invitation link will appear after account verification.</p>
-<div id="myReferralLink" class="notice">No referral link yet.</div>
-<button class="btn" id="copyReferralBtn" type="button">Copy Referral Link</button>
-</div>
-</div>
+  <h2>Referral Program</h2>
+  <p>Referral System Coming Soon</p>
 </section>
 
-<footer>
-<p>MineX — Community Mining Project</p>
-<p>Demo and proposed features only. No live token, guaranteed rewards or active mining.</p>
-</footer>
+<section id="profileSection" class="hidden">
+  <h2>My Profile</h2>
+  <p id="profileDetails"></p>
+  <button id="logoutBtn">Sign Out</button>
+</section>
+  
+</div>
+  
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 
-<div id="toast" role="status" aria-live="polite"></div>
-
-</main>
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-  collection,
-  query,
-  where,
-  getDocs,
-  runTransaction,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+<script>
 const firebaseConfig = {
   apiKey: "AIzaSyAGY2itBBkwbhoCpjObIdTXSD3YXrPGpAU",
   authDomain: "minex-ebe70.firebaseapp.com",
@@ -730,28 +235,16 @@ const firebaseConfig = {
   measurementId: "G-9TGDN4GTN4"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
 
-const googleProvider = new GoogleAuthProvider();
-  // MineX basic helper functions
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-const $ = (id) => document.getElementById(id);
-
-function showToast(message) {
-  const toast = $("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3500);
-}
-
-function showAuthMessage(message) {
-  $("authMessage").textContent = message;
-}
+console.log("MineX Firebase Connected");
+</script>
+  
+<script>
+// MineX Authentication
 
 function showPanel(panelId) {
   const panels = [
@@ -759,410 +252,189 @@ function showPanel(panelId) {
     "signupPanel",
     "loginPanel",
     "profilePanel",
-    "savedPanel"
+    "dashboard"
   ];
 
   panels.forEach(id => {
-    $(id).classList.add("hidden");
+    document.getElementById(id).classList.add("hidden");
   });
 
-  $(panelId).classList.remove("hidden");
+  document.getElementById(panelId).classList.remove("hidden");
 }
 
-function hideAppSections() {
-  [
-    "miningSection",
-    "tasksSection",
-    "walletSection",
-    "referralSection"
-  ].forEach(id => {
-    $(id).classList.add("hidden");
-  });
-}
-
-function normalizeUsername(value) {
-  return value.trim().toLowerCase();
-}
-
-// Account screen buttons
-
-$("showSignupBtn").addEventListener("click", () => {
+document.getElementById("showSignupBtn").onclick = () => {
   showPanel("signupPanel");
-  showAuthMessage("Create your MineX account.");
-});
+};
 
-$("showLoginBtn").addEventListener("click", () => {
+document.getElementById("showLoginBtn").onclick = () => {
   showPanel("loginPanel");
-  showAuthMessage("Enter your email and password.");
-});
+};
 
-$("backFromSignup").addEventListener("click", () => {
+document.getElementById("backWelcomeBtn").onclick = () => {
   showPanel("welcomePanel");
-});
+};
 
-$("backFromLogin").addEventListener("click", () => {
+document.getElementById("backLoginBtn").onclick = () => {
   showPanel("welcomePanel");
-});
+};
 
-// Username availability check
+// Signup
+document.getElementById("signupBtn").onclick = async () => {
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value;
 
-$("username").addEventListener("input", async () => {
-  const username = normalizeUsername($("username").value);
-  const status = $("usernameStatus");
-
-  if (!/^[a-z0-9_]{3,20}$/.test(username)) {
-    status.textContent = "Use 3–20 letters, numbers or underscores.";
-    return;
-  }
-
-  status.textContent = "Checking username...";
-
-  try {
-    const usernameRef = doc(db, "usernames", username);
-    const usernameSnap = await getDoc(usernameRef);
-
-    status.textContent = usernameSnap.exists()
-      ? "Username already taken."
-      : "Username available!";
-  } catch (error) {
-    status.textContent = "Could not check username. Try again later.";
-  }
-});
-  // MineX account registration
-
-$("signupBtn").addEventListener("click", async () => {
-  const fullName = $("fullName").value.trim();
-  const username = normalizeUsername($("username").value);
-  const email = $("signupEmail").value.trim();
-  const password = $("signupPassword").value;
-  const country = $("country").value;
-  const gender = $("gender").value;
-
-  if (!fullName || !username || !email || !password || !country || !gender) {
-    showToast("Please complete all signup fields.");
-    return;
-  }
-
-  if (!/^[a-z0-9_]{3,20}$/.test(username)) {
-    showToast("Username must be 3–20 characters.");
-    return;
-  }
-
-  if (password.length < 6) {
-    showToast("Password must be at least 6 characters.");
+  if (!name || !email || password.length < 6) {
+    alert("Enter your name, valid email and password (minimum 6 characters).");
     return;
   }
 
   try {
-    $("signupBtn").disabled = true;
-    $("signupBtn").textContent = "Creating Account...";
+    const result = await auth.createUserWithEmailAndPassword(email, password);
 
-    const usernameRef = doc(db, "usernames", username);
-    const usernameSnap = await getDoc(usernameRef);
+    await result.user.updateProfile({
+      displayName: name
+    });
 
-    if (usernameSnap.exists()) {
-      showToast("This username is already taken.");
-      return;
-    }
+    await result.user.sendEmailVerification();
 
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    alert("Verification email sent. Verify your email before login.");
 
-    const user = userCredential.user;
-
-    localStorage.setItem(
-      "minex_profile_" + user.uid,
-      JSON.stringify({ fullName, username, country, gender })
-    );
-
-    await sendEmailVerification(user);
-
-    $("profileFullName").value = fullName;
-    $("profileUsername").value = username;
-    $("profileCountry").value = country;
-    $("profileGender").value = gender;
-
-    $("verificationNotice").textContent =
-      "Verification email sent. Verify your email, then press Check Email Verification.";
-
-    showPanel("profilePanel");
-    showToast("Account created! Please verify your email.");
+    await auth.signOut();
+    showPanel("loginPanel");
 
   } catch (error) {
-    console.error(error);
-    showToast(error.message || "Signup failed. Please try again.");
-  } finally {
-    $("signupBtn").disabled = false;
-    $("signupBtn").textContent = "Create Account";
+    alert(error.message);
   }
-});
-  // MineX email and password login
+};
 
-$("loginBtn").addEventListener("click", async () => {
-  const email = $("loginEmail").value.trim();
-  const password = $("loginPassword").value;
-
-  if (!email || !password) {
-    showToast("Enter your email and password.");
-    return;
-  }
+// Login
+document.getElementById("loginBtn").onclick = async () => {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
 
   try {
-    $("loginBtn").disabled = true;
-
-    const result = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const result = await auth.signInWithEmailAndPassword(email, password);
 
     await result.user.reload();
 
     if (!result.user.emailVerified) {
-      showPanel("profilePanel");
-      $("verificationNotice").textContent =
-        "Your email is not verified yet. Verify it before saving your profile.";
-      showToast("Please verify your email first.");
+      alert("Please verify your email before continuing.");
+      await auth.signOut();
       return;
     }
 
-    await loadMineXProfile(result.user);
+    showPanel("profilePanel");
 
   } catch (error) {
-    console.error(error);
-    showToast("Login failed: " + error.message);
-  } finally {
-    $("loginBtn").disabled = false;
+    alert(error.message);
   }
-});
+};
+</script>
+  
+<script>
+// MineX Profile System
 
-// Google login
-
-$("googleBtn").addEventListener("click", async () => {
-  try {
-    const result = await signInWithPopup(auth, googleProvider);
-    await loadMineXProfile(result.user);
-  } catch (error) {
-    console.error(error);
-    showToast("Google login failed: " + error.message);
-  }
-});
-
-// Forgot password
-
-$("resetBtn").addEventListener("click", async () => {
-  const email = $("loginEmail").value.trim();
-
-  if (!email) {
-    showToast("Enter your email address first.");
-    return;
-  }
-
-  try {
-    await sendPasswordResetEmail(auth, email);
-    showToast("Password reset email requested.");
-  } catch (error) {
-    showToast(error.message);
-  }
-});
-  // Load MineX user profile
-
-async function loadMineXProfile(user) {
-  const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
-
-  if (userSnap.exists()) {
-    const data = userSnap.data();
-
-    $("savedWelcome").textContent =
-      "Welcome back, " + (data.fullName || user.displayName || "MineX Member");
-
-    $("savedUsername").textContent =
-      "Username: @" + (data.username || "Not set");
-
-    $("referralArea").textContent =
-      "Referral link will be available here.";
-
-    showPanel("savedPanel");
-    return;
-  }
-
-  const draft = localStorage.getItem("minex_profile_" + user.uid);
-
-  if (draft) {
-    const profile = JSON.parse(draft);
-
-    $("profileFullName").value = profile.fullName || "";
-    $("profileUsername").value = profile.username || "";
-    $("profileCountry").value = profile.country || "";
-    $("profileGender").value = profile.gender || "";
-  } else {
-    $("profileFullName").value = user.displayName || "";
-  }
-
-  showPanel("profilePanel");
-}
-
-// Check email verification
-
-$("checkVerificationBtn").addEventListener("click", async () => {
-  if (!auth.currentUser) {
-    showToast("Please log in first.");
-    return;
-  }
-
-  try {
-    await auth.currentUser.reload();
-
-    if (auth.currentUser.emailVerified) {
-      $("verificationNotice").textContent =
-        "Email verified! You can now save your profile.";
-
-      showToast("Email verification successful.");
-    } else {
-      showToast("Email is not verified yet. Please check your inbox.");
-    }
-  } catch (error) {
-    showToast(error.message);
-  }
-});
-
-// Save verified profile with unique username
-
-$("saveProfileBtn").addEventListener("click", async () => {
+document.getElementById("saveProfileBtn").onclick = async () => {
   const user = auth.currentUser;
 
-  if (!user) {
-    showToast("Please log in first.");
+  if (!user || !user.emailVerified) {
+    alert("Please login with a verified account.");
     return;
   }
 
-  await user.reload();
+  const fullName = document.getElementById("profileFullName").value.trim();
+  const username = document.getElementById("profileUsername").value.trim().toLowerCase();
+  const country = document.getElementById("profileCountry").value;
 
-  if (!user.emailVerified) {
-    showToast("Verify your email before saving.");
-    return;
-  }
-
-  const fullName = $("profileFullName").value.trim();
-  const username = normalizeUsername($("profileUsername").value);
-  const country = $("profileCountry").value;
-  const gender = $("profileGender").value;
-
-  if (!fullName || !country || !gender ||
-      !/^[a-z0-9_]{3,20}$/.test(username)) {
-    showToast("Please check all profile fields.");
+  if (!fullName || !/^[a-z0-9_]{3,20}$/.test(username) || !country) {
+    alert("Enter valid name, username (3-20 characters) and country.");
     return;
   }
 
   try {
-    $("saveProfileBtn").disabled = true;
+    await db.collection("users").doc(user.uid).set({
+      fullName,
+      username,
+      country,
+      email: user.email
+    }, { merge: true });
 
-    const userRef = doc(db, "users", user.uid);
-    const usernameRef = doc(db, "usernames", username);
+    document.getElementById("welcomeUser").textContent =
+      "Welcome back, " + fullName;
 
-    await runTransaction(db, async (transaction) => {
-      const userSnap = await transaction.get(userRef);
-      const usernameSnap = await transaction.get(usernameRef);
+    document.getElementById("profileDetails").textContent =
+      fullName + " | @" + username + " | " + country;
 
-      if (userSnap.exists()) {
-        throw new Error("Profile already exists. Please log in again.");
-      }
+    showPanel("dashboard");
+    document.getElementById("dashboardMenu").classList.remove("hidden");
 
-      if (usernameSnap.exists()) {
-        throw new Error("Username already taken. Choose another.");
-      }
-
-      transaction.set(userRef, {
-        uid: user.uid,
-        email: user.email,
-        fullName,
-        username,
-        country,
-        gender,
-        emailVerified: true,
-        createdAt: serverTimestamp()
-      });
-
-      transaction.set(usernameRef, {
-        uid: user.uid,
-        username,
-        createdAt: serverTimestamp()
-      });
-    });
-
-    localStorage.removeItem("minex_profile_" + user.uid);
-
-    await loadMineXProfile(user);
-    showToast("MineX profile saved successfully!");
+    alert("Profile saved successfully!");
 
   } catch (error) {
-    console.error(error);
-    showToast(error.message || "Profile could not be saved.");
-  } finally {
-    $("saveProfileBtn").disabled = false;
+    alert("Profile save failed: " + error.message);
   }
-});
-  // MineX demo mining system
-// Demo only: no real token or cash rewards.
+};
+</script>
+  
+<script>
+// MineX Demo Mining System
 
-const MINING_DURATION = 24 * 60 * 60 * 1000;
+let miningData = {
+  balance: 0,
+  active: false,
+  endTime: 0
+};
+
 let miningInterval = null;
 
-let miningData = JSON.parse(
-  localStorage.getItem("minex_mining_demo") ||
-  '{"active":false,"startTime":0,"balance":0}'
-);
+function loadMiningData() {
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const saved = localStorage.getItem("minex_mining_" + user.uid);
+
+  miningData = saved
+    ? JSON.parse(saved)
+    : { balance: 0, active: false, endTime: 0 };
+
+  updateMiningDisplay();
+}
 
 function saveMiningData() {
+  const user = auth.currentUser;
+  if (!user) return;
+
   localStorage.setItem(
-    "minex_mining_demo",
+    "minex_mining_" + user.uid,
     JSON.stringify(miningData)
   );
 }
 
 function updateMiningDisplay() {
+  document.getElementById("miningBalance").textContent =
+    miningData.balance + " CP";
+
   if (!miningData.active) {
-    $("miningTimer").textContent = "24:00:00";
-    $("miningStatus").textContent = "Not Active";
-    $("miningPageStatus").textContent = "Mining is not active.";
-    $("startMiningBtn").disabled = false;
+    document.getElementById("miningTimer").textContent = "24:00:00";
+    document.getElementById("miningStatus").textContent =
+      "Mining Not Active Yet";
     return;
   }
 
-  const elapsed = Date.now() - miningData.startTime;
-  const remaining = Math.max(0, MINING_DURATION - elapsed);
-
-  if (remaining <= 0) {
-    miningData.active = false;
-    saveMiningData();
-    stopMiningTimer();
-    $("miningTimer").textContent = "00:00:00";
-    $("miningStatus").textContent = "Completed";
-    $("miningPageStatus").textContent =
-      "Demo mining session completed. No real reward is issued.";
-    $("startMiningBtn").disabled = false;
-    showToast("Demo mining session completed.");
-    return;
-  }
+  const remaining = Math.max(0, miningData.endTime - Date.now());
 
   const hours = Math.floor(remaining / 3600000);
   const minutes = Math.floor((remaining % 3600000) / 60000);
   const seconds = Math.floor((remaining % 60000) / 1000);
 
-  $("miningTimer").textContent =
-    String(hours).padStart(2, "0") + ":" +
-    String(minutes).padStart(2, "0") + ":" +
-    String(seconds).padStart(2, "0");
+  document.getElementById("miningTimer").textContent =
+    [hours, minutes, seconds]
+      .map(n => String(n).padStart(2, "0"))
+      .join(":");
 
-  $("miningStatus").textContent = "Active — Demo";
-  $("miningPageStatus").textContent =
-    "Your demo mining session is running.";
-
-  $("startMiningBtn").disabled = true;
+  document.getElementById("miningStatus").textContent =
+    "Demo Mining Active";
 }
 
 function stopMiningTimer() {
@@ -1172,434 +444,158 @@ function stopMiningTimer() {
   }
 }
 
+function checkMining() {
+  if (!miningData.active) return;
+
+  if (Date.now() >= miningData.endTime) {
+    miningData.balance += 10;
+    miningData.active = false;
+    miningData.endTime = 0;
+
+    saveMiningData();
+
+    stopMiningTimer();
+
+    alert("Demo mining completed: +10 CP");
+  }
+
+  updateMiningDisplay();
+}
+
 function startMiningTimer() {
   stopMiningTimer();
-  updateMiningDisplay();
+  checkMining();
 
   if (miningData.active) {
-    miningInterval = setInterval(updateMiningDisplay, 1000);
+    miningInterval = setInterval(checkMining, 1000);
   }
 }
 
-$("startMiningBtn").addEventListener("click", () => {
+document.getElementById("startMiningBtn").onclick = () => {
   if (!auth.currentUser) {
-    showToast("Please log in first.");
+    alert("Please login first.");
     return;
   }
 
   if (miningData.active) {
-    showToast("Mining session is already active.");
+    alert("Mining is already active.");
     return;
   }
 
   miningData.active = true;
-  miningData.startTime = Date.now();
+  miningData.endTime = Date.now() + 24 * 60 * 60 * 1000;
 
   saveMiningData();
   startMiningTimer();
 
-  showToast("Demo mining started!");
-});
-
-$("stopMiningBtn").addEventListener("click", () => {
-  if (!miningData.active) {
-    showToast("No active mining session.");
-    return;
-  }
-
-  miningData.active = false;
-  saveMiningData();
-  stopMiningTimer();
-  updateMiningDisplay();
-
-  $("miningPageStatus").textContent =
-    "Demo mining stopped. No real reward was issued.";
-
-  showToast("Demo mining stopped.");
-});
-
-startMiningTimer();
-  // MineX demo points and daily check-in
-// CP are demo points only, not MNX, USDT or cash.
-
-let pointsData = JSON.parse(
-  localStorage.getItem("minex_points_demo") ||
-  '{"balance":0,"lastCheckIn":"","history":[]}'
-);
-
-function savePointsData() {
-  localStorage.setItem(
-    "minex_points_demo",
-    JSON.stringify(pointsData)
-  );
-}
-
-function updatePointsDisplay() {
-  $("miningBalance").textContent =
-    pointsData.balance + " CP";
-
-  $("walletBalance").textContent =
-    "Demo Balance: " + pointsData.balance + " CP";
-}
-
-function addDemoHistory(message) {
-  pointsData.history.unshift({
-    message,
-    date: new Date().toLocaleString()
-  });
-
-  pointsData.history = pointsData.history.slice(0, 30);
-  savePointsData();
-}
-
-// Daily check-in button will be added to the page later.
-
-function dailyCheckIn() {
-  if (!auth.currentUser) {
-    showToast("Please log in first.");
-    return;
-  }
-
-  const today = new Date().toISOString().slice(0, 10);
-
-  if (pointsData.lastCheckIn === today) {
-    showToast("You have already checked in today.");
-    return;
-  }
-
-  pointsData.lastCheckIn = today;
-  pointsData.balance += 10;
-
-  addDemoHistory("Daily demo check-in: +10 CP");
-  updatePointsDisplay();
-
-  showToast("Daily check-in recorded: +10 demo CP.");
-}
-
-function showMiningHistory() {
-  const history = pointsData.history || [];
-
-  if (history.length === 0) {
-    showToast("No demo activity history yet.");
-    return;
-  }
-
-  const details = history
-    .map(item => item.date + " — " + item.message)
-    .join("\n");
-
-  alert("MineX Demo Activity History\n\n" + details);
-}
-
-updatePointsDisplay();
-  // MineX Community Tasks
-// Tasks are demo activities. No cash or token rewards.
-
-const mineXTasks = [
-  {
-    id: "profile",
-    title: "Complete Your Profile",
-    description: "Complete and save your MineX profile.",
-    reward: 20
-  },
-  {
-    id: "checkin",
-    title: "Daily Check-in",
-    description: "Record your daily community check-in.",
-    reward: 10
-  },
-  {
-    id: "community",
-    title: "Explore MineX",
-    description: "Explore the MineX community ecosystem.",
-    reward: 5
-  }
-];
-
-function renderMineXTasks() {
-  const taskList = $("taskList");
-  taskList.innerHTML = "";
-
-  mineXTasks.forEach(task => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    const title = document.createElement("h3");
-    title.textContent = task.title;
-
-    const description = document.createElement("p");
-    description.textContent = task.description;
-
-    const reward = document.createElement("p");
-    reward.textContent = "Proposed demo reward: " + task.reward + " CP";
-
-    const button = document.createElement("button");
-    button.className = "btn";
-    button.type = "button";
-    button.textContent = "Mark Demo Task";
-
-    button.addEventListener("click", () => {
-      if (!auth.currentUser) {
-        showToast("Please log in first.");
-        return;
-      }
-
-      const completed = JSON.parse(
-        localStorage.getItem("minex_tasks_demo") || "[]"
-      );
-
-      if (completed.includes(task.id)) {
-        showToast("This demo task is already completed.");
-        return;
-      }
-
-      completed.push(task.id);
-
-      localStorage.setItem(
-        "minex_tasks_demo",
-        JSON.stringify(completed)
-      );
-
-      $("taskCount").textContent = completed.length;
-
-      showToast("Demo task marked complete. No CP credited.");
-      renderMineXTasks();
-    });
-
-    const completed = JSON.parse(
-      localStorage.getItem("minex_tasks_demo") || "[]"
-    );
-
-    if (completed.includes(task.id)) {
-      button.textContent = "Demo Completed";
-      button.disabled = true;
-    }
-
-    card.append(title, description, reward, button);
-    taskList.appendChild(card);
-  });
-
-  const completed = JSON.parse(
-    localStorage.getItem("minex_tasks_demo") || "[]"
-  );
-
-  $("taskCount").textContent = completed.length;
-}
-
-renderMineXTasks();
-  // MineX referral system
-// Referral tracking is informational only.
-// No referral rewards are issued yet.
-
-function getReferralLink(username) {
-  return window.location.origin +
-    window.location.pathname +
-    "?ref=" + encodeURIComponent(username);
-}
-
-async function loadReferralDetails(user) {
-  const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
-
-  if (!userSnap.exists() || !user.emailVerified) {
-    $("myReferralLink").textContent =
-      "Verify your email and save your profile first.";
-    $("referralArea").textContent =
-      "Referral link will appear after verification.";
-    return;
-  }
-
-  const username = userSnap.data().username;
-  const link = getReferralLink(username);
-
-  $("myReferralLink").textContent = link;
-  $("referralArea").textContent = "Your referral link: " + link;
-}
-
-$("copyReferralBtn").addEventListener("click", async () => {
-  if (!auth.currentUser || !auth.currentUser.emailVerified) {
-    showToast("Please verify your account first.");
-    return;
-  }
-
-  try {
-    await loadReferralDetails(auth.currentUser);
-
-    const link = $("myReferralLink").textContent;
-
-    if (!link.startsWith("http")) {
-      showToast("Referral link is not ready yet.");
-      return;
-    }
-
-    await navigator.clipboard.writeText(link);
-    showToast("Referral link copied!");
-  } catch (error) {
-    showToast("Could not copy link. Please try again.");
-  }
-});
-
-// Capture an incoming referral code
-
-const incomingReferral =
-  new URLSearchParams(window.location.search).get("ref");
-
-if (incomingReferral) {
-  localStorage.setItem(
-    "minex_incoming_referral",
-    incomingReferral.trim().toLowerCase()
-  );
-}
-  // MineX Wallet — demo interface only
-// No private keys, deposits, withdrawals or live transactions.
-
-$("connectWalletBtn").addEventListener("click", () => {
-  showToast("WalletConnect is coming soon. No wallet connected.");
-});
-
-// Dashboard navigation buttons
-
-$("openMiningBtn").addEventListener("click", () => {
-  hideAppSections();
-  $("miningSection").classList.remove("hidden");
-  $("miningSection").scrollIntoView({ behavior: "smooth" });
-  updateMiningDisplay();
-});
-
-$("openTasksBtn").addEventListener("click", () => {
-  hideAppSections();
-  $("tasksSection").classList.remove("hidden");
-  $("tasksSection").scrollIntoView({ behavior: "smooth" });
-  renderMineXTasks();
-});
-
-$("openWalletBtn").addEventListener("click", () => {
-  hideAppSections();
-  $("walletSection").classList.remove("hidden");
-  $("walletSection").scrollIntoView({ behavior: "smooth" });
-  updatePointsDisplay();
-});
-
-$("openReferralBtn").addEventListener("click", async () => {
-  hideAppSections();
-  $("referralSection").classList.remove("hidden");
-  $("referralSection").scrollIntoView({ behavior: "smooth" });
-
-  if (auth.currentUser) {
-    await loadReferralDetails(auth.currentUser);
-  } else {
-    $("myReferralLink").textContent =
-      "Please log in to view your referral link.";
-  }
-});
-
-// Update dashboard when profile is saved
-
-function updateMineXDashboard() {
-  updatePointsDisplay();
-  updateMiningDisplay();
-
-  const completedTasks = JSON.parse(
-    localStorage.getItem("minex_tasks_demo") || "[]"
-  );
-
-  $("taskCount").textContent = completedTasks.length;
-  $("referralCount").textContent = "0";
-  }
-  // Daily check-in and history buttons
-
-const dashboardContainer = document.querySelector("#dashboard .container");
-
-const activityPanel = document.createElement("div");
-activityPanel.className = "panel";
-activityPanel.innerHTML = `
-  <h3>Daily Community Activity</h3>
-  <p>Daily check-in: 10 demo CP</p>
-  <button class="btn" id="dailyCheckInBtn" type="button">
-    Daily Check-in
-  </button>
-  <button class="btn secondary" id="historyBtn" type="button">
-    Activity History
-  </button>
-`;
-
-dashboardContainer.appendChild(activityPanel);
-
-$("dailyCheckInBtn").addEventListener("click", dailyCheckIn);
-$("historyBtn").addEventListener("click", showMiningHistory);
-
-// Admin panel placeholder
-// Secure admin access requires a protected server-side role.
-
-const adminPanel = document.createElement("div");
-adminPanel.className = "panel";
-adminPanel.innerHTML = `
-  <h3>MineX Administration</h3>
-  <p>Admin controls are not active.</p>
-  <div class="notice">
-    Secure admin permissions must be configured before activation.
-  </div>
-`;
-dashboardContainer.appendChild(adminPanel);
-
-// Sign out
-
-$("signOutBtn").addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    $("dashboard").classList.add("hidden");
-    hideAppSections();
-    showPanel("welcomePanel");
-    showAuthMessage("You have signed out of MineX.");
-    showToast("Signed out successfully.");
-  } catch (error) {
-    showToast("Sign out failed: " + error.message);
-  }
-});
-
-// Restore account state after login or page refresh
-
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    showPanel("welcomePanel");
-    hideAppSections();
-    $("dashboard").classList.add("hidden");
-    return;
-  }
-
-  try {
-    await user.reload();
-
-    if (!user.emailVerified) {
-      $("dashboard").classList.add("hidden");
-      hideAppSections();
-
-      await loadMineXProfile(user);
-
-      $("verificationNotice").textContent =
-        "Please verify your email before saving your profile.";
-
-      showAuthMessage("Email verification is required.");
-      return;
-    }
-
-    await loadMineXProfile(user);
-    $("dashboard").classList.remove("hidden");
-    updateMineXDashboard();
-    await loadReferralDetails(user);
-
-  } catch (error) {
-    console.error(error);
-    showToast("Could not load your MineX account.");
-  }
-});
-
-// Final page initialization
-
-renderMineXTasks();
-updatePointsDisplay();
-updateMineXDashboard();
+  alert("Demo mining started for 24 hours!");
+};
 
 </script>
+  
+<script>
+// MineX Navigation
+
+function hideAppSections() {
+  [
+    "miningSection",
+    "tasksSection",
+    "walletSection",
+    "referralSection",
+    "profileSection"
+  ].forEach(id => {
+    document.getElementById(id).classList.add("hidden");
+  });
+}
+
+function openSection(sectionId) {
+  hideAppSections();
+
+  document.getElementById(sectionId).classList.remove("hidden");
+
+  if (sectionId === "miningSection") {
+    loadMiningData();
+    startMiningTimer();
+  }
+}
+
+document.getElementById("openMiningBtn").onclick = () =>
+  openSection("miningSection");
+
+document.getElementById("openTasksBtn").onclick = () =>
+  openSection("tasksSection");
+
+document.getElementById("openWalletBtn").onclick = () =>
+  openSection("walletSection");
+
+document.getElementById("openReferralBtn").onclick = () =>
+  openSection("referralSection");
+
+document.getElementById("openProfileBtn").onclick = () =>
+  openSection("profileSection");
+
+// Logout
+document.getElementById("logoutBtn").onclick = async () => {
+  try {
+    stopMiningTimer();
+    await auth.signOut();
+    alert("You have signed out of MineX.");
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+// Restore login state
+auth.onAuthStateChanged(async user => {
+  hideAppSections();
+
+  if (!user) {
+    document.getElementById("dashboardMenu").classList.add("hidden");
+    showPanel("welcomePanel");
+    stopMiningTimer();
+    return;
+  }
+
+  await user.reload();
+
+  if (!user.emailVerified) {
+    await auth.signOut();
+    showPanel("welcomePanel");
+    return;
+  }
+
+  const profile = await db.collection("users").doc(user.uid).get();
+
+  if (profile.exists && profile.data().fullName) {
+    const data = profile.data();
+
+    document.getElementById("welcomeUser").textContent =
+      "Welcome back, " + data.fullName;
+
+    document.getElementById("profileDetails").textContent =
+      data.fullName + " | @" + data.username + " | " + data.country;
+
+    showPanel("dashboard");
+    document.getElementById("dashboardMenu").classList.remove("hidden");
+    loadMiningData();
+  } else {
+    document.getElementById("profileFullName").value =
+      user.displayName || "";
+    showPanel("profilePanel");
+  }
+});
+</script>
+  
+<script>
+// MineX final app setup
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("MineX App Loaded Successfully");
+});
+
+// Prevent accidental double Firebase initialization
+console.log("MineX Community Mining Project");
+</script>
+  
 </body>
 </html>
